@@ -2,15 +2,22 @@
 
 ---
 
-## Executive Summary
+## Executive Summary & Platform Declaration
+
+> [!IMPORTANT]
+> **Official Development Platform Declaration**:
+> This entire data engineering system, encompassing all 5 implementation phases, multi-agent swarms, architectural designs, defensive pipelines, and 840+ unit/integration tests, was conceived, developed, orchestrated, and verified inside **Google Antigravity** in **Live Mode** powered by **Gemini 3.8 Flash** (`gemini-3.8-flash`).
 
 | Attribute | Details |
 |---|---|
 | **Project Title** | Production Job Ingestion, LLM Extraction, Entity Resolution & Change-Data-Capture Pipeline |
 | **Candidate / Author** | Satya Prakash Dwivedi (`spdwivedi`) |
 | **Repository** | [https://github.com/spdwivedi/Twig_assignment.git](https://github.com/spdwivedi/Twig_assignment.git) |
+| **AI Development Platform** | **Google Antigravity (AGY)** |
+| **Execution Environment** | **Live Mode (Bidirectional Voice & Real-Time Swarm Orchestration)** |
+| **Primary LLM Model** | **Google Gemini 3.8 Flash (`gemini-3.8-flash`)** |
 | **Primary Technology Stack** | Python 3.14, Pydantic v2, RapidFuzz, SQLite (WAL mode), Requests, BeautifulSoup4, Pytest |
-| **Total Test Suite** | **840 tests collected and passed (100% pass rate in 4.26s)** |
+| **Total Test Suite** | **840 tests collected and passed (100% pass rate in 4.03s)** |
 | **Architecture Paradigm** | Multi-Agent Swarm Orchestration, Decoupled Modular Pipeline, Defensive Ingestion |
 | **Document Purpose** | Comprehensive turn-by-turn engineering declaration detailing prompts, architectural decisions, swarm execution, benchmarks, and version-controlled milestones. |
 
