@@ -1,5 +1,49 @@
 [
   {
+    "posting_id": "cea7d50ed56c8cfc53ca5eeeaf02887c930253351f3fc066ff02e59143040114",
+    "canonical_id": "cea7d50ed56c8cfc53ca5eeeaf02887c930253351f3fc066ff02e59143040114",
+    "company": "Airbnb",
+    "title": "Senior Data Engineer, Core Infrastructure",
+    "seniority": "senior",
+    "city": null,
+    "country": null,
+    "remote_policy": "remote",
+    "salary_min": 175000.0,
+    "salary_max": 225000.0,
+    "salary_range": "$175,000 - $225,000 USD",
+    "currency": "USD",
+    "employment_type": null,
+    "skills": [
+      "Airflow",
+      "Apache Spark",
+      "Python",
+      "Spark",
+      "Trino"
+    ],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "greenhouse"
+    ],
+    "source_urls": [
+      "https://boards.greenhouse.io/airbnb/jobs/4910284"
+    ],
+    "source_posting_ids": [
+      "229144b512030a0a10b52314b5141dd1e5793739d563aac5ee398ad2dc22501f"
+    ],
+    "evidence": {
+      "company": "Airbnb is looking for a Senior Data Engineer for Core Infrastructure. Work on large-scale data lake",
+      "remote_policy": "Airbnb is looking for a Senior Data Engineer for Core Infrastructure. Work on large-scale data lake architecture. Technologies: Apache Spark, Trino, Apache Iceberg, Python, Airflow. Remote eligible anywhere in the United States. Compensation: $175,000 - $225,000.",
+      "salary": "$175,000 - $225,000",
+      "seniority": "Senior Data Engineer, Core Infrastructure",
+      "skills": "Airbnb is looking for a Senior Data Engineer for Core Infrastructure. Work on large-scale data lake architecture. Technologies: Apache Spark, Trino, Apache Iceberg, Python, Airflow. Remote eligible an"
+    },
+    "first_seen": "2026-11-18T20:44:27.951131+00:00",
+    "last_seen": "2026-11-18T20:50:28.952909+00:00",
+    "duplicate_count": 1
+  },
+  {
     "posting_id": "85c1e56f255e878693c41e7f9cff81439ea9a607e66bb49885181445da712f0d",
     "canonical_id": "85c1e56f255e878693c41e7f9cff81439ea9a607e66bb49885181445da712f0d",
     "company": "Ask HN: Who is hiring? (November 2026)",
@@ -61,6 +105,94 @@
     "duplicate_count": 1
   },
   {
+    "posting_id": "34b3a6cda05412c6f36568479c74c4ee5e0a2f4498cfbad953a0af206f4d75bb",
+    "canonical_id": "34b3a6cda05412c6f36568479c74c4ee5e0a2f4498cfbad953a0af206f4d75bb",
+    "company": "Databricks",
+    "title": "Senior ML Platform Engineer",
+    "seniority": "senior",
+    "city": "Mountain View",
+    "country": null,
+    "remote_policy": "hybrid",
+    "salary_min": 190000.0,
+    "salary_max": 250000.0,
+    "salary_range": "$190,000 - $250,000 USD",
+    "currency": "USD",
+    "employment_type": null,
+    "skills": [
+      "Databricks",
+      "Docker",
+      "Go",
+      "Kubernetes",
+      "Python",
+      "Pytorch"
+    ],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "greenhouse"
+    ],
+    "source_urls": [
+      "https://boards.greenhouse.io/databricks/jobs/6102941"
+    ],
+    "source_posting_ids": [
+      "34b3a6cda05412c6f36568479c74c4ee5e0a2f4498cfbad953a0af206f4d75bb"
+    ],
+    "evidence": {
+      "city": "Mountain View",
+      "company": "Databricks provides a unified data analytics and AI platform. Looking for a Senior ML Platform Engin",
+      "remote_policy": "Databricks provides a unified data analytics and AI platform. Looking for a Senior ML Platform Engineer to build scalable infrastructure for model training and serving. Key skills: Python, Go, Kubernetes, Ray, PyTorch, Docker. Salary: $190,000 - $250,000 per year. Hybrid / Onsite in Mountain View, CA.",
+      "salary": "$190,000 - $250,000",
+      "seniority": "Senior ML Platform Engineer",
+      "skills": "Databricks provides a unified data analytics and AI platform. Looking for a Senior ML Platform Engineer to build scalable infrastructure for model training and serving. Key skills: Python, Go, Kuberne",
+      "title": "Databricks provides a unified data analytics and AI platform. Looking for a Senior ML Platform Engin"
+    },
+    "first_seen": "2026-11-18T20:44:27.951131+00:00",
+    "last_seen": "2026-11-18T20:50:28.952909+00:00",
+    "duplicate_count": 1
+  },
+  {
+    "posting_id": "183e457c903bbf917f05f099c602af6fcae62575291910522424bfdaedbbbc1f",
+    "canonical_id": "183e457c903bbf917f05f099c602af6fcae62575291910522424bfdaedbbbc1f",
+    "company": "Figma",
+    "title": "Analytics Engineer, Growth",
+    "seniority": null,
+    "city": null,
+    "country": null,
+    "remote_policy": null,
+    "salary_min": 160000.0,
+    "salary_max": 210000.0,
+    "salary_range": "$160,000 - $210,000 USD",
+    "currency": "USD",
+    "employment_type": null,
+    "skills": [
+      "dbt",
+      "Python",
+      "Snowflake",
+      "SQL"
+    ],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "greenhouse"
+    ],
+    "source_urls": [
+      "https://boards.greenhouse.io/figma/jobs/7192041"
+    ],
+    "source_posting_ids": [
+      "b74aa63119be7887a476581e0beadf36e939b443afa3597f1c47c66f18d196b6"
+    ],
+    "evidence": {
+      "company": "Figma is looking for an Analytics Engineer to partner with Product and Growth teams. Design and main",
+      "salary": "$160,000 - $210,000",
+      "skills": "Figma is looking for an Analytics Engineer to partner with Product and Growth teams. Design and maintain dimensional data models in dbt and Snowflake. Skills: SQL, dbt, Snowflake, Python, Looker. Base"
+    },
+    "first_seen": "2026-11-18T20:44:27.951131+00:00",
+    "last_seen": "2026-11-18T20:50:28.952909+00:00",
+    "duplicate_count": 1
+  },
+  {
     "posting_id": "444f3b1cd010ea4f480af31fc8b6899df5d7e180933b6ecef64bb69013e78b58",
     "canonical_id": "444f3b1cd010ea4f480af31fc8b6899df5d7e180933b6ecef64bb69013e78b58",
     "company": "Fly.io",
@@ -95,6 +227,223 @@
     },
     "first_seen": "2026-11-18T19:38:51.280193+00:00",
     "last_seen": "2026-11-18T19:38:51.280193+00:00",
+    "duplicate_count": 1
+  },
+  {
+    "posting_id": "cf9461ad421b70ee3e5873535fc4453e8ed400b5b43a0d7720f3d4ee18f6777d",
+    "canonical_id": "cf9461ad421b70ee3e5873535fc4453e8ed400b5b43a0d7720f3d4ee18f6777d",
+    "company": "Palantir",
+    "title": "Backend Software Engineer - Data Connectors",
+    "seniority": null,
+    "city": null,
+    "country": null,
+    "remote_policy": null,
+    "salary_min": null,
+    "salary_max": null,
+    "salary_range": "",
+    "currency": null,
+    "employment_type": null,
+    "skills": [],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "closed",
+    "sources": [
+      "lever"
+    ],
+    "source_urls": [
+      "https://jobs.lever.co/palantir/9aadca04-df88-4b46-95d8-c3b2628b30b0"
+    ],
+    "source_posting_ids": [
+      "cf9461ad421b70ee3e5873535fc4453e8ed400b5b43a0d7720f3d4ee18f6777d"
+    ],
+    "evidence": {},
+    "first_seen": "2026-11-18T20:41:17.943004+00:00",
+    "last_seen": "2026-11-18T20:44:27.952313+00:00",
+    "duplicate_count": 1
+  },
+  {
+    "posting_id": "18e19b6556a98922e3e12e4d84963d76dd6065a6b68b079b13622c21745dccb3",
+    "canonical_id": "18e19b6556a98922e3e12e4d84963d76dd6065a6b68b079b13622c21745dccb3",
+    "company": "Palantir",
+    "title": "Data Platform Engineer, Foundry",
+    "seniority": null,
+    "city": "New York",
+    "country": null,
+    "remote_policy": "hybrid",
+    "salary_min": 150000.0,
+    "salary_max": 200000.0,
+    "salary_range": "$150,000 - $200,000 USD",
+    "currency": "USD",
+    "employment_type": null,
+    "skills": [
+      "Apache Spark",
+      "Java",
+      "Python",
+      "Spark"
+    ],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "lever"
+    ],
+    "source_urls": [
+      "https://jobs.lever.co/palantir/palantir-dp-01"
+    ],
+    "source_posting_ids": [
+      "18e19b6556a98922e3e12e4d84963d76dd6065a6b68b079b13622c21745dccb3"
+    ],
+    "evidence": {
+      "city": "New York",
+      "company": "Palantir builds software that empowers organizations to effectively integrate their data. We need a",
+      "remote_policy": "Palantir builds software that empowers organizations to effectively integrate their data. We need a Data Platform Engineer for Foundry infrastructure. Tech Stack: Java, Python, Apache Spark, Cassandra. Salary: $150,000 - $200,000. Hybrid in New York, NY.",
+      "salary": "$150,000 - $200,000",
+      "skills": "Palantir builds software that empowers organizations to effectively integrate their data. We need a Data Platform Engineer for Foundry infrastructure. Tech Stack: Java, Python, Apache Spark, Cassandra"
+    },
+    "first_seen": "2026-11-18T20:44:27.951131+00:00",
+    "last_seen": "2026-11-18T20:50:28.952909+00:00",
+    "duplicate_count": 1
+  },
+  {
+    "posting_id": "a3ffaa5c166f4372d1025c4259ba43df9b91cbfaaf2618297e1a3199dff61ee2",
+    "canonical_id": "a3ffaa5c166f4372d1025c4259ba43df9b91cbfaaf2618297e1a3199dff61ee2",
+    "company": "Plaid",
+    "title": "Senior Machine Learning Engineer, Risk",
+    "seniority": "senior",
+    "city": "New York",
+    "country": null,
+    "remote_policy": "remote",
+    "salary_min": 185000.0,
+    "salary_max": 235000.0,
+    "salary_range": "$185,000 - $235,000 USD",
+    "currency": "USD",
+    "employment_type": null,
+    "skills": [
+      "Airflow",
+      "Python",
+      "Pytorch",
+      "SQL"
+    ],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "lever"
+    ],
+    "source_urls": [
+      "https://jobs.lever.co/plaid/plaid-ml-01"
+    ],
+    "source_posting_ids": [
+      "a3ffaa5c166f4372d1025c4259ba43df9b91cbfaaf2618297e1a3199dff61ee2"
+    ],
+    "evidence": {
+      "city": "New York",
+      "company": "Plaid powers the fintech ecosystem. Looking for a Senior Machine Learning Engineer for Risk & Fraud.",
+      "remote_policy": "Plaid powers the fintech ecosystem. Looking for a Senior Machine Learning Engineer for Risk & Fraud. You will train production risk evaluation models. Requirements: Python, PyTorch, SQL, Airflow. US-Remote eligible or New York office. Salary: $185,000 - $235,000.",
+      "salary": "$185,000 - $235,000",
+      "seniority": "Senior Machine Learning Engineer, Risk",
+      "skills": "Plaid powers the fintech ecosystem. Looking for a Senior Machine Learning Engineer for Risk & Fraud. You will train production risk evaluation models. Requirements: Python, PyTorch, SQL, Airflow. US-R"
+    },
+    "first_seen": "2026-11-18T20:44:27.951131+00:00",
+    "last_seen": "2026-11-18T20:50:28.952909+00:00",
+    "duplicate_count": 1
+  },
+  {
+    "posting_id": "2c5d9e30a77077f12d0babbd184286cfd65fc707f264fcb6e49dc1bb83d9be18",
+    "canonical_id": "2c5d9e30a77077f12d0babbd184286cfd65fc707f264fcb6e49dc1bb83d9be18",
+    "company": "Stripe",
+    "title": "Staff Data Engineer",
+    "seniority": "staff_plus",
+    "city": "San Francisco",
+    "country": null,
+    "remote_policy": "hybrid",
+    "salary_min": 180000.0,
+    "salary_max": 240000.0,
+    "salary_range": "$180,000 - $240,000 USD",
+    "currency": "USD",
+    "employment_type": null,
+    "skills": [
+      "Apache Spark",
+      "Kafka",
+      "Presto",
+      "Python",
+      "Spark",
+      "SQL"
+    ],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "greenhouse",
+      "default"
+    ],
+    "source_urls": [
+      "https://boards.greenhouse.io/stripe/jobs/5829101",
+      "https://pipeline.local/hn/3800103"
+    ],
+    "source_posting_ids": [
+      "2c5d9e30a77077f12d0babbd184286cfd65fc707f264fcb6e49dc1bb83d9be18"
+    ],
+    "evidence": {
+      "city": "San Francisco",
+      "company": "Stripe is building economic infrastructure for the internet. We are seeking a Staff Data Engineer to",
+      "remote_policy": "Stripe is building economic infrastructure for the internet. We are seeking a Staff Data Engineer to lead our financial ledger and real-time payment ingestion pipelines. Requirements: 7+ years of experience with Python, SQL, Apache Spark, Kafka, and Presto. Compensation: $180,000 - $240,000 base salary. Hybrid in San Francisco, CA.",
+      "salary": "$180,000 - $240,000",
+      "seniority": "Staff Data Engineer",
+      "skills": "Stripe is building economic infrastructure for the internet. We are seeking a Staff Data Engineer to lead our financial ledger and real-time payment ingestion pipelines. Requirements: 7+ years of expe",
+      "title": "Stripe is building economic infrastructure for the internet. We are seeking a Staff Data Engineer to"
+    },
+    "first_seen": "2026-11-18T20:44:27.951131+00:00",
+    "last_seen": "2026-11-18T20:50:28.952909+00:00",
+    "duplicate_count": 2
+  },
+  {
+    "posting_id": "d3e3a854445a8ec3879a74fd6d657e52ce020c50d63db69c89c840a5428ad2d9",
+    "canonical_id": "d3e3a854445a8ec3879a74fd6d657e52ce020c50d63db69c89c840a5428ad2d9",
+    "company": "Supabase",
+    "title": "Senior Data Engineer",
+    "seniority": "senior",
+    "city": "San Francisco",
+    "country": null,
+    "remote_policy": "remote",
+    "salary_min": 185000.0,
+    "salary_max": 225000.0,
+    "salary_range": "$185,000 - $225,000 USD",
+    "currency": "USD",
+    "employment_type": null,
+    "skills": [
+      "Apache Kafka",
+      "Clickhouse",
+      "dbt",
+      "Kafka",
+      "PostgreSQL",
+      "Python",
+      "SQL"
+    ],
+    "visa_sponsorship": true,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "default"
+    ],
+    "source_urls": [
+      "https://pipeline.local/hn/3800101"
+    ],
+    "source_posting_ids": [
+      "d3e3a854445a8ec3879a74fd6d657e52ce020c50d63db69c89c840a5428ad2d9"
+    ],
+    "evidence": {
+      "city": "San Francisco",
+      "company": "Supabase | Senior Data Engineer | San Francisco, CA | REMOTE (US) | $185k - $225k | Visa: Yes",
+      "remote_policy": "Supabase | Senior Data Engineer | San Francisco, CA | REMOTE (US) | $185k - $225k | Visa: Yes",
+      "salary": "$185k - $225k",
+      "seniority": "Senior Data Engineer",
+      "skills": "Stack: Python, SQL, PostgreSQL, ClickHouse, Apache Kafka, dbt. Compensation: $185,000 - $225,000 base + equity. We sponsor H-1B transfers.",
+      "title": "Supabase | Senior Data Engineer | San Francisco, CA | REMOTE (US) | $185k - $225k | Visa: Yes",
+      "visa_sponsorship": "Visa: Yes"
+    },
+    "first_seen": "2026-11-18T20:44:27.951131+00:00",
+    "last_seen": "2026-11-18T20:50:28.952909+00:00",
     "duplicate_count": 1
   },
   {

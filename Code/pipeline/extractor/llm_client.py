@@ -452,8 +452,20 @@ class LLMClient:
 
         Adheres strictly to The Strict Null Rule and Evidence Requirement.
         """
-        metadata = source_metadata or {}
+        metadata = dict(source_metadata or {})
         text = clean_job_text.strip()
+
+        # If a full prompt containing <JOB_POSTING_TEXT> was passed into mock mode, unwrap target text & metadata
+        if "<JOB_POSTING_TEXT>" in text and "</JOB_POSTING_TEXT>" in text:
+            if not metadata and "Source Context & Metadata:" in text:
+                meta_chunk = text.split("Source Context & Metadata:")[1].split("<JOB_POSTING_TEXT>")[0]
+                for mline in meta_chunk.splitlines():
+                    mline = mline.strip().lstrip("-").strip()
+                    if ":" in mline:
+                        mk, mv = mline.split(":", 1)
+                        metadata[mk.strip()] = mv.strip()
+            text = text.split("<JOB_POSTING_TEXT>")[1].split("</JOB_POSTING_TEXT>")[0].strip()
+
         lines = [line.strip() for line in text.splitlines() if line.strip()]
         first_line = lines[0] if lines else ""
 
@@ -662,10 +674,11 @@ class LLMClient:
 
         # 6. Skills (STRICT: only include technologies explicitly mentioned in text)
         catalog = [
-            "Python", "SQL", "Spark", "dbt", "Kafka", "Flink", "PyTorch", "TensorFlow",
-            "Kubernetes", "Docker", "Delta Lake", "Snowflake", "BigQuery", "Databricks",
-            "Airflow", "AWS", "GCP", "Azure", "Java", "Scala", "Go", "C++", "Postgres",
-            "Scikit-learn", "Hadoop", "Pandas"
+            "Python", "SQL", "Spark", "Apache Spark", "dbt", "Kafka", "Apache Kafka", "Flink",
+            "PyTorch", "TensorFlow", "Kubernetes", "Docker", "Delta Lake", "Snowflake", "BigQuery",
+            "Databricks", "Airflow", "AWS", "GCP", "Azure", "Java", "Scala", "Go", "C++",
+            "Postgres", "PostgreSQL", "ClickHouse", "Scikit-learn", "Hadoop", "Pandas",
+            "Redis", "Rust", "DuckDB", "Presto", "Trino", "Terraform", "TypeScript", "Linux", "CUDA"
         ]
         skills = []
         for skill in catalog:
@@ -683,12 +696,12 @@ class LLMClient:
         # 7. Visa Sponsorship (STRICT NULL: null if unstated)
         visa_sponsorship = None
         no_visa_match = re.search(
-            r"(?:no\s+visa|not\s+(?:provide|offer|sponsor)\s+visa|unable\s+to\s+sponsor|cannot\s+sponsor|visa:\s*no|without\s+requiring\s+sponsorship|no\s+sponsorship)",
+            r"(?:no\s+visa|not\s+(?:provide|offer|sponsor)\s+visa|unable\s+to\s+(?:sponsor|provide)|cannot\s+(?:sponsor|offer)|visa:\s*no|without\s+(?:requiring\s+)?(?:future\s+)?sponsorship|no\s+sponsorship|visa\s+sponsorship\s+is\s+not\s+available|not\s+available)",
             text,
             re.IGNORECASE
         )
         yes_visa_match = re.search(
-            r"(?:visa\s+sponsorship\s+(?:available|provided|offered)|we\s+(?:provide|offer|sponsor)\s+visa|visa:\s*yes|sponsorship\s+available)",
+            r"(?:visa\s+sponsorship\s+(?:available|provided|offered|support)|(?:we|does|will)\s+(?:provide|offer|sponsor)\s+.*visa|visa:\s*yes|sponsorship\s+available|open\s+to\s+sponsoring\s+visas|sponsors?\s+(?:employment|work|h-1b)?\s*visas?|sponsor\s+h-1b)",
             text,
             re.IGNORECASE
         )
