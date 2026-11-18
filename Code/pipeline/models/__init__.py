@@ -2,12 +2,17 @@
 
 Exports:
 - Strict Enums: SeniorityEnum, RemotePolicyEnum, EmploymentTypeEnum, StatusEnum
-- Core Models: JobPostingRecord, RawExtractionOutput
-- Deterministic Hashing: generate_deterministic_id
+- Core Models: JobPostingRecord, RawExtractionOutput, CanonicalJobPosting
+- Deterministic Hashing: generate_deterministic_id, generate_canonical_id
 - Anti-Hallucination Validators: validate_salary, normalize_annual_salary,
   validate_evidence_presence, validate_evidence_in_text, validate_record_evidence
 """
 
+from pipeline.models.canonical import (
+    CanonicalJobPosting,
+    format_skill,
+    generate_canonical_id,
+)
 from pipeline.models.schema import (
     EmploymentTypeEnum,
     JobPostingRecord,
@@ -37,7 +42,10 @@ __all__ = [
     # Schemas & Models
     "JobPostingRecord",
     "RawExtractionOutput",
+    "CanonicalJobPosting",
     "generate_deterministic_id",
+    "generate_canonical_id",
+    "format_skill",
     # Validation & Normalization Functions
     "validate_salary",
     "normalize_annual_salary",
