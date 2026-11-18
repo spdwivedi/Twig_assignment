@@ -44,6 +44,10 @@ htmlcov/
 *.sqlite3
 *.log
 
+# Personal Notes (Local only, not pushed to repo)
+Notes/
+notes/
+
 # Operating System
 .DS_Store
 Thumbs.db
