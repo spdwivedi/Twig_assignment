@@ -1,0 +1,135 @@
+[
+  {
+    "posting_id": "85c1e56f255e878693c41e7f9cff81439ea9a607e66bb49885181445da712f0d",
+    "canonical_id": "85c1e56f255e878693c41e7f9cff81439ea9a607e66bb49885181445da712f0d",
+    "company": "Ask HN: Who is hiring? (November 2026)",
+    "title": "https://commonprefix.notion.site/swe-folk-bedrock",
+    "seniority": "staff_plus",
+    "city": "San Francisco",
+    "country": null,
+    "remote_policy": "hybrid",
+    "salary_min": 156000.0,
+    "salary_max": 156000.0,
+    "salary_range": "$156,000 USD",
+    "currency": "USD",
+    "employment_type": "full_time",
+    "skills": [
+      "AWS",
+      "Azure",
+      "Databricks",
+      "Docker",
+      "GCP",
+      "Go",
+      "Java",
+      "Kafka",
+      "Kubernetes",
+      "Pandas",
+      "PostgreSQL",
+      "Python",
+      "Pytorch",
+      "Scala",
+      "Scikit-Learn",
+      "Snowflake",
+      "SQL",
+      "Tensorflow"
+    ],
+    "visa_sponsorship": false,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "hackernews"
+    ],
+    "source_urls": [
+      "https://news.ycombinator.com/item?id=50338728"
+    ],
+    "source_posting_ids": [
+      "85c1e56f255e878693c41e7f9cff81439ea9a607e66bb49885181445da712f0d"
+    ],
+    "evidence": {
+      "company": "Ask HN: Who is hiring? (November 2026)",
+      "title": "Role: \nhttps://commonprefix.notion.site/swe-folk-bedrock",
+      "seniority": "Staff Software Engineer",
+      "remote_policy": "Namespace | San Francisco, CA / New York, NY / Zurich, Switzerland / Remote | Full-time | REMOTE or HYBRID |",
+      "city": "San Francisco",
+      "salary": "$75/hr",
+      "employment_type": "Full time",
+      "skills": "Brazil? Let's go!!!",
+      "visa_sponsorship": "no visa"
+    },
+    "first_seen": "2026-11-18T19:38:51.594170+00:00",
+    "last_seen": "2026-11-18T19:38:51.594170+00:00",
+    "duplicate_count": 1
+  },
+  {
+    "posting_id": "444f3b1cd010ea4f480af31fc8b6899df5d7e180933b6ecef64bb69013e78b58",
+    "canonical_id": "444f3b1cd010ea4f480af31fc8b6899df5d7e180933b6ecef64bb69013e78b58",
+    "company": "Fly.io",
+    "title": "Data Engineer",
+    "seniority": null,
+    "city": null,
+    "country": null,
+    "remote_policy": "remote",
+    "salary_min": 190000.0,
+    "salary_max": 190000.0,
+    "salary_range": "$190,000 USD",
+    "currency": "USD",
+    "employment_type": "full_time",
+    "skills": [],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "hackernews"
+    ],
+    "source_urls": [
+      "https://news.ycombinator.com/item?id=50342723"
+    ],
+    "source_posting_ids": [
+      "444f3b1cd010ea4f480af31fc8b6899df5d7e180933b6ecef64bb69013e78b58"
+    ],
+    "evidence": {
+      "company": "Fly.io",
+      "remote_policy": "Fly.io | REMOTE (multiple countries) | Full time | $190k USD + equity",
+      "salary": "$190k",
+      "employment_type": "Full time"
+    },
+    "first_seen": "2026-11-18T19:38:51.280193+00:00",
+    "last_seen": "2026-11-18T19:38:51.280193+00:00",
+    "duplicate_count": 1
+  },
+  {
+    "posting_id": "1ce9a7738de8c31d070b51fbc4c2cb1ee16c195ea975f881a9a0ebabdd54c246",
+    "canonical_id": "1ce9a7738de8c31d070b51fbc4c2cb1ee16c195ea975f881a9a0ebabdd54c246",
+    "company": "Zed Industries",
+    "title": "Data Engineer",
+    "seniority": null,
+    "city": null,
+    "country": null,
+    "remote_policy": "remote",
+    "salary_min": null,
+    "salary_max": null,
+    "salary_range": "",
+    "currency": null,
+    "employment_type": null,
+    "skills": [],
+    "visa_sponsorship": null,
+    "posted_date": null,
+    "status": "open",
+    "sources": [
+      "hackernews"
+    ],
+    "source_urls": [
+      "https://news.ycombinator.com/item?id=50341570"
+    ],
+    "source_posting_ids": [
+      "1ce9a7738de8c31d070b51fbc4c2cb1ee16c195ea975f881a9a0ebabdd54c246"
+    ],
+    "evidence": {
+      "company": "Zed Industries",
+      "remote_policy": "Zed Industries | North America, South America, Europe REMOTE |"
+    },
+    "first_seen": "2026-11-18T19:38:51.339808+00:00",
+    "last_seen": "2026-11-18T19:38:51.339808+00:00",
+    "duplicate_count": 1
+  }
+]
