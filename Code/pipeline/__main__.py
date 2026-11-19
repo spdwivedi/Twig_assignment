@@ -122,6 +122,18 @@ def create_cli_parser() -> argparse.ArgumentParser:
         help="Force live ATS scraping even in mock mode",
     )
     run_parser.add_argument(
+        "--provider",
+        type=str,
+        default=None,
+        help="LLM provider name: 'gemini', 'openai', or 'mock'",
+    )
+    run_parser.add_argument(
+        "--model",
+        type=str,
+        default=None,
+        help="LLM model name (e.g. 'gemini-1.5-flash', 'gemini-4-argon', 'gpt-4o-mini')",
+    )
+    run_parser.add_argument(
         "-v",
         "--verbose",
         action="store_true",
@@ -150,6 +162,12 @@ def create_cli_parser() -> argparse.ArgumentParser:
         type=str,
         default="data/labeled_benchmark.json",
         help="Path to labeled benchmark JSON dataset",
+    )
+    eval_parser.add_argument(
+        "--provider",
+        type=str,
+        default=None,
+        help="LLM provider name: 'gemini', 'openai', or 'mock'",
     )
     eval_parser.add_argument(
         "--model",
@@ -393,6 +411,18 @@ def create_cli_parser() -> argparse.ArgumentParser:
         help="Optional path to export extracted records as a JSON file",
     )
     extract_parser.add_argument(
+        "--provider",
+        type=str,
+        default=None,
+        help="LLM provider name: 'gemini', 'openai', or 'mock'",
+    )
+    extract_parser.add_argument(
+        "--model",
+        type=str,
+        default=None,
+        help="LLM model name (e.g. 'gemini-1.5-flash', 'gemini-4-argon', 'gpt-4o-mini')",
+    )
+    extract_parser.add_argument(
         "-v",
         "--verbose",
         action="store_true",
@@ -513,6 +543,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             detect_closures=not args.no_closures,
             dry_run=args.dry_run,
             live_scrape=args.live_scrape,
+            provider=getattr(args, "provider", None),
+            model=getattr(args, "model", None),
             verbose=args.verbose,
         )
         return 0 if results.get("status") == "success" else 1
@@ -574,6 +606,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         run_extraction(
             limit=args.limit,
             mock=args.mock,
+            provider=getattr(args, "provider", None),
+            model=getattr(args, "model", None),
             source=args.source,
             input_file=args.input_file,
             db_path=args.db_path,

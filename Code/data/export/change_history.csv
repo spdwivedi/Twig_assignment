@@ -1,3 +1,9 @@
 history_id,posting_id,field_name,old_value,new_value,detected_at,reason
 1,cf9461ad421b70ee3e5873535fc4453e8ed400b5b43a0d7720f3d4ee18f6777d,source:lever,active,inactive,2026-11-18T20:44:27.952313+00:00,source_closed
 2,cf9461ad421b70ee3e5873535fc4453e8ed400b5b43a0d7720f3d4ee18f6777d,status,open,closed,2026-11-18T20:44:27.952313+00:00,posting_closed
+3,85c1e56f255e878693c41e7f9cff81439ea9a607e66bb49885181445da712f0d,source:hackernews,active,inactive,2026-11-18T22:38:07.740623+00:00,source_closed
+4,85c1e56f255e878693c41e7f9cff81439ea9a607e66bb49885181445da712f0d,status,open,closed,2026-11-18T22:38:07.740623+00:00,posting_closed
+5,444f3b1cd010ea4f480af31fc8b6899df5d7e180933b6ecef64bb69013e78b58,source:hackernews,active,inactive,2026-11-18T22:38:07.740623+00:00,source_closed
+6,444f3b1cd010ea4f480af31fc8b6899df5d7e180933b6ecef64bb69013e78b58,status,open,closed,2026-11-18T22:38:07.740623+00:00,posting_closed
+7,1ce9a7738de8c31d070b51fbc4c2cb1ee16c195ea975f881a9a0ebabdd54c246,source:hackernews,active,inactive,2026-11-18T22:38:07.740623+00:00,source_closed
+8,1ce9a7738de8c31d070b51fbc4c2cb1ee16c195ea975f881a9a0ebabdd54c246,status,open,closed,2026-11-18T22:38:07.740623+00:00,posting_closed

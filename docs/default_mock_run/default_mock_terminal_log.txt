@@ -1,0 +1,103 @@
+2026-11-19 04:44:23,375 [INFO] pipeline.run - ================================================================================
+2026-11-19 04:44:23,375 [INFO] pipeline.run - STARTING TWIG DATA ENGINEER MASTER PIPELINE EXECUTION
+2026-11-19 04:44:23,375 [INFO] pipeline.run -   Mode:        Offline Mock Mode (Zero Cost)
+2026-11-19 04:44:23,375 [INFO] pipeline.run -   Database:    D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db
+2026-11-19 04:44:23,375 [INFO] pipeline.run -   Export Dir:  data\export
+2026-11-19 04:44:23,375 [INFO] pipeline.run -   Concurrency: 5
+2026-11-19 04:44:23,375 [INFO] pipeline.run -   Limit:       None
+2026-11-19 04:44:23,375 [INFO] pipeline.run - ================================================================================
+2026-11-19 04:44:23,375 [INFO] pipeline.run - [Stage 1/6] Ingestion: Starting raw data collection...
+2026-11-19 04:44:23,375 [INFO] pipeline.run - Using deterministic high-fidelity mock candidate dataset for offline execution...
+2026-11-19 04:44:23,396 [INFO] pipeline.run - [Stage 1/6] Ingestion complete. Ingested 11 raw postings.
+2026-11-19 04:44:23,396 [INFO] pipeline.run - [Stage 2/6] Candidate Filtering: Evaluating 11 raw postings...
+2026-11-19 04:44:23,397 [INFO] pipeline.run - [Stage 2/6] Candidate Filtering complete: 8 / 11 postings qualified.
+2026-11-19 04:44:23,397 [INFO] pipeline.run - [Stage 3/6] LLM Extraction: Extracting schemas from 8 candidates...
+2026-11-19 04:44:23,576 [INFO] pipeline.extract - Using 8 in-memory postings provided to run_extraction.
+2026-11-19 04:44:23,576 [INFO] pipeline.extract - Initializing BatchExtractor (mock=True, provider=None, model=None, db_path=D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db, concurrency=5)...
+2026-11-19 04:44:23,576 [INFO] pipeline.extractor.batch_runner - Initializing standard JobExtractor with LLMClient (mock=True, provider=None, model=None)
+2026-11-19 04:44:23,576 [INFO] pipeline.extractor.batch_runner - [BatchRunner] Starting batch extraction for 8 postings with concurrency=5
+2026-11-19 04:44:23,580 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:44:23,580 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [1/8] SUCCESS: Stripe - Staff Data Engineer (ID: 2c5d9e30a77077f12d0babbd184286cfd65fc707f264fcb6e49dc1bb83d9be18)
+2026-11-19 04:44:23,581 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:44:23,581 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [2/8] SUCCESS: Databricks - Senior ML Platform Engineer (ID: 34b3a6cda05412c6f36568479c74c4ee5e0a2f4498cfbad953a0af206f4d75bb)
+2026-11-19 04:44:23,582 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [3/8] SUCCESS: Airbnb - Senior Data Engineer, Core Infrastructure (ID: 229144b512030a0a10b52314b5141dd1e5793739d563aac5ee398ad2dc22501f)
+2026-11-19 04:44:23,583 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [4/8] SUCCESS: Figma - Analytics Engineer, Growth (ID: b74aa63119be7887a476581e0beadf36e939b443afa3597f1c47c66f18d196b6)
+2026-11-19 04:44:23,584 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:44:23,584 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [6/8] SUCCESS: Plaid - Senior Machine Learning Engineer, Risk (ID: a3ffaa5c166f4372d1025c4259ba43df9b91cbfaaf2618297e1a3199dff61ee2)
+2026-11-19 04:44:23,584 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:44:23,585 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [5/8] SUCCESS: Palantir - Data Platform Engineer, Foundry (ID: 18e19b6556a98922e3e12e4d84963d76dd6065a6b68b079b13622c21745dccb3)
+2026-11-19 04:44:23,585 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:44:23,586 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [8/8] SUCCESS: Stripe - Staff Data Engineer (ID: 2c5d9e30a77077f12d0babbd184286cfd65fc707f264fcb6e49dc1bb83d9be18)
+2026-11-19 04:44:23,586 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:44:23,586 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [7/8] SUCCESS: Supabase - Senior Data Engineer (ID: d3e3a854445a8ec3879a74fd6d657e52ce020c50d63db69c89c840a5428ad2d9)
+2026-11-19 04:44:23,587 [INFO] pipeline.extractor.batch_runner - [BatchRunner] Completed batch: 8/8 succeeded (100.0%) in 0.01 seconds (756.9 jobs/sec)
+2026-11-19 04:44:23,587 [INFO] pipeline.extract - Persisting 8 extracted records to SQLite table 'extracted_postings'...
+2026-11-19 04:44:23,603 [INFO] pipeline.extractor.batch_runner - Saved 8 extracted postings into table 'extracted_postings'
+2026-11-19 04:44:23,604 [INFO] pipeline.extract - Successfully persisted 8 records into 'D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db'.
+2026-11-19 04:44:23,604 [INFO] pipeline.run - [Stage 3/6] LLM Extraction complete: Extracted 8 structured records.
+2026-11-19 04:44:23,604 [INFO] pipeline.run - [Stage 4/6] Deduplication & Entity Resolution: Resolving 8 records...
+2026-11-19 04:44:23,652 [INFO] pipeline.dedup.resolver - Starting deduplication for 8 input postings...
+2026-11-19 04:44:23,653 [INFO] pipeline.dedup.resolver - Partitioned 8 postings into 7 candidate blocks.
+2026-11-19 04:44:23,653 [INFO] pipeline.dedup.resolver - Completed 1 pairwise comparisons. Identified 1 matching pairs.
+2026-11-19 04:44:23,653 [INFO] pipeline.dedup.resolver - Formed 7 connected component clusters.
+2026-11-19 04:44:23,653 [INFO] pipeline.dedup.resolver - Deduplication complete: 8 raw postings -> 7 canonical records (merged 1 duplicates).
+2026-11-19 04:44:23,653 [INFO] pipeline.run - [Stage 4/6] Deduplication complete: 7 canonical entities resolved (1 duplicates merged).
+2026-11-19 04:44:23,653 [INFO] pipeline.run - [Stage 5/6] Storage & Change Detection: Persisting 7 canonical entities...
+2026-11-19 04:44:23,663 [INFO] pipeline.storage.idempotent_upsert - Completed upsert: 0 inserted, 0 updated, 7 unchanged, 0 changes logged
+2026-11-19 04:44:23,664 [INFO] pipeline.run - Executing active/closed lifecycle closure detection...
+2026-11-19 04:44:23,664 [INFO] pipeline.storage.lifecycle_manager - detect_closed_postings completed for source 'greenhouse'. Closed 0 postings.
+2026-11-19 04:44:23,665 [INFO] pipeline.storage.lifecycle_manager - detect_closed_postings completed for source 'lever'. Closed 0 postings.
+2026-11-19 04:44:23,665 [INFO] pipeline.storage.lifecycle_manager - detect_closed_postings completed for source 'hn'. Closed 0 postings.
+2026-11-19 04:44:23,665 [INFO] pipeline.run - [Stage 5/6] Storage complete: 0 inserted, 0 updated, 7 unchanged, 0 closed, 0 changes logged.
+2026-11-19 04:44:23,665 [INFO] pipeline.run - [Stage 6/6] Export: Writing artifacts to 'data\export'...
+2026-11-19 04:44:23,677 [INFO] pipeline.storage.exporter - Exported 58 canonical jobs to CSV: data\export\canonical_jobs.csv
+2026-11-19 04:44:23,680 [INFO] pipeline.storage.exporter - Exported 58 canonical jobs to JSON: data\export\canonical_jobs.json
+2026-11-19 04:44:23,681 [INFO] pipeline.storage.exporter - Exported 8 change history records to CSV: data\export\change_history.csv
+2026-11-19 04:44:23,681 [INFO] pipeline.run - [Stage 6/6] Export complete: CSV (58 rows, 28.8 KB), JSON (58 records, 68.9 KB), History (8 rows, 1.2 KB).
+
+==========================================================================
+                 Twig Phase 2 LLM Extraction Metrics Report
+==========================================================================
+  Metric Category                     |                   Measured Value
+------------------------------------+-----------------------------------
+  Total Postings Processed            |                                8
+  Successful Extractions              |                                8
+  Failed Extractions (Fail-Soft)      |                                0
+  Extraction Success Rate             |                          100.00%
+------------------------------------+-----------------------------------
+  Postings with Non-Null Salary       |                          100.00% (8/8)
+  Postings with Remote Policy         |                           87.50% (7/8)
+  Postings with Verified Evidence     |                          100.00% (8/8)
+------------------------------------+-----------------------------------
+  Total Prompt Tokens Consumed        |                            4,035
+  Total Completion Tokens             |                            1,468
+  Total Cost (USD)                    | $                       0.000743
+  Average Cost per Posting            | $                       0.000093
+------------------------------------+-----------------------------------
+  Batch Execution Time                |                           0.01 sec
+  Extraction Throughput               |                     756.94 postings/s
+==========================================================================
+
+
+==================================================================================
+                            TWIG DATA ENGINEER PIPELINE EXECUTION SUMMARY         
+==================================================================================
+  Execution Mode:       Offline Mock Mode (Zero Cost)
+  Target Database:      D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db
+  Export Directory:     data\export
+  Total Duration:       0.307s
+----------------------------------------------------------------------------------
+  STAGE METRICS & THROUGHPUT
+   1. Raw Ingestion:                11 postings scraped/loaded
+   2. Role & Location Filter:        8 candidate Data/ML postings retained
+   3. LLM Structured Extraction:     8 postings extracted (0 hallucinations)
+   4. Deduplication & DSU:           7 canonical entities (1 duplicates merged)
+   5. Storage & Idempotency:     0 inserted | 0 updated | 7 unchanged | 0 closed
+   6. Artifact Exports:
+      - Canonical Jobs CSV:      data\export\canonical_jobs.csv (58 rows, 28.8 KB)
+      - Canonical Jobs JSON:     data\export\canonical_jobs.json (58 entities, 68.9 KB)
+      - Change History CSV:      data\export\change_history.csv (8 rows, 1.2 KB)
+==================================================================================
+                 PIPELINE EXECUTION STATUS: COMPLETED SUCCESSFULLY                
+==================================================================================
+

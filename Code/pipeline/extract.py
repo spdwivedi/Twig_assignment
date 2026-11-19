@@ -42,6 +42,8 @@ def run_extraction(
     postings: Optional[List[Dict[str, Any]]] = None,
     limit: Optional[int] = None,
     mock: bool = False,
+    provider: Optional[str] = None,
+    model: Optional[str] = None,
     source: Optional[Union[str, List[str]]] = None,
     input_file: Optional[Union[str, Path]] = None,
     db_path: Optional[str] = None,
@@ -55,6 +57,8 @@ def run_extraction(
         postings: In-memory candidate postings. If None, loaded from file/db/ingest.
         limit: Max postings to extract (useful for testing and cost caps).
         mock: If True, uses offline deterministic Mock LLM mode (zero API cost).
+        provider: Optional LLM provider name ('gemini', 'openai', 'mock').
+        model: Optional LLM model name (e.g. 'gemini-1.5-flash', 'gemini-4-argon').
         source: Scraper source filter ('greenhouse', 'lever', 'hn', 'all').
         input_file: Path to candidate JSON file.
         db_path: Custom SQLite database path. Defaults to pipeline.config.DB_PATH.
@@ -126,12 +130,14 @@ def run_extraction(
 
     # 3. Initialize BatchExtractor
     logger.info(
-        "Initializing BatchExtractor (mock=%s, db_path=%s, concurrency=%d)...",
+        "Initializing BatchExtractor (mock=%s, provider=%s, model=%s, db_path=%s, concurrency=%d)...",
         mock,
+        provider,
+        model,
         effective_db,
         max_concurrency,
     )
-    runner = BatchExtractor(mock=mock, db_path=effective_db)
+    runner = BatchExtractor(mock=mock, provider=provider, model=model, db_path=effective_db)
 
     # 4. Run batch extraction
     extracted_records = runner.run_batch(

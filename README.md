@@ -85,17 +85,34 @@ flowchart TD
 
 ---
 
-## 2. Key Operational Metrics & Benchmark Results
+## 2. Key Operational Metrics & Multi-Model Execution Results
 
-| Metric | Measured Value | Architectural Mechanism |
-|---|---|---|
-| **Unit & Integration Test Suite** | **1,006 passed / 0 failed (100%)** | Full test coverage executed in **~4.05 seconds** via pytest. |
-| **LLM Hallucination Rate** | **0.0% (Zero Hallucination)** | Dual-barrier verbatim substring verification rejecting ungrounded tokens. |
-| **Search Space Reduction** | **>95.2% candidate pairs pruned** | Inverted index multi-pass blocking across company, seniority, and metro keys. |
-| **CDC Idempotency Drift** | **0 False Change Events** | Float-tolerant salary diffing ($1.00 threshold) and array set-equality checks. |
-| **Token Reduction Efficiency** | **72.4% prompt token savings** | HTML preprocessor stripping DOM overhead, headers, navigation, and styling. |
-| **Inference Cost Efficiency** | **~$0.00015 per posting** | Gemini 3.8 Flash structured output with compact evidence verification. |
-| **End-to-End Test Execution** | **4.05 seconds** | Pure vectorized in-memory mocking, SQLite WAL mode, and batch processing. |
+| Metric | Offline Mock Run | Gemini 3.5 Flash-Lite (Live) | Gemini 4 Argon (Live) |
+|---|---|---|---|
+| **Execution Mode** | Hermetic Offline Simulation | Live Cloud API (`google-genai`) | Live Cloud API (`google-genai`) |
+| **Candidate Postings** | 8 jobs | 112 jobs | 112 jobs |
+| **Successful Extractions** | **8 / 8 (100.0%)** | **112 / 112 (100.0%)** | **82 / 112 (73.2%)** |
+| **Failure Isolation** | 0 failures | **0 failures (Zero 429 errors)** | 30 fail-soft isolations (spending cap) |
+| **Batch Duration** | 0.01 seconds | **33.11 seconds (3.38 jobs/s)** | 150.97 seconds (0.74 jobs/s) |
+| **Official Rate Card** | $0.00 / 1M ($0.075 Sim) | **$0.30 prompt / $2.50 completion** | **$2.00 prompt / $10.00 completion** |
+| **Actual Cloud Billed Cost** | **$0.000000 USD** | **$0.243588 USD** (~24.4¢) | **$0.673268 USD** (~67.3¢) |
+| **Projected Cost / 1k Jobs** | $0.00 (Offline) | **$2.17 USD** | **$8.21 USD** (Intro) / **$16.42** (Std) |
+| **Verbatim Evidence Grounding** | **100.0% (8/8)** | Strict null-over-hallucination | **100.0% (82/82)** |
+| **Automated Pytest Suite** | **1,006 passed / 0 failed (100% across 24 test suites in ~5.6s)** |
+
+### Verified Google AI Studio Quota Telemetry
+
+![Google AI Studio Quota Usage Dashboard](docs/google_ai_studio_quota_usage.png)
+
+```
+Model                  Category          RPM          TPM             RPD
+-----------------------------------------------------------------------------------------
+Gemini 4 Argon         Text-out models   50 / 1K      274.98K / 2M    165 / Unlimited
+Gemini 3.5 Flash Lite  Text-out models   73 / 4K      664.84K / 4M    112 / 150K
+```
+- **Gemini 3.5 Flash-Lite**: Exact 112/112 RPD matching 112 candidate jobs; 664.84K TPM matching the 665,765 prompt tokens logged in [`docs/gemini_3.5_flash_lite_run/`](file:///D:/Project_Files/AGY_Assignments/Twig/docs/gemini_3.5_flash_lite_run/gemini_3.5_flash_lite_terminal_log.txt).
+- **Gemini 4 Argon**: 165 RPD (82 successful extractions + backoff retries + validation roundtrips). Stopped at posting 83 strictly due to the Google Cloud project's **monthly spending cap**, not rate-limit exhaustion. All 82 records safely persisted in SQLite.
+- *Detailed analysis available in [`docs/model_pricing_and_cost_accounting.md`](file:///D:/Project_Files/AGY_Assignments/Twig/docs/model_pricing_and_cost_accounting.md).*
 
 ---
 
@@ -317,35 +334,56 @@ flowchart LR
 
 ```
 Twig/
-├── README.md                                  # Production documentation & architectural specification
-├── AI_Interaction_Log.md                      # Audit log of multi-agent engineering sessions
-├── requirements.txt                           # Production dependency specification
+├── README.md                                  # Production master documentation & architectural specification
+├── .gitignore                                 # Git exclusions (protects Notes/, .env, credentials, SQLite WAL)
+├── AI_Log/                                    # AI Interaction logs & prompt lineage
+│   ├── README.md                              # AI log directory guide
+│   └── AI_Interaction_Log.md                  # Comprehensive audit log of multi-agent engineering sessions
+├── docs/                                      # Pipeline execution documentation & quota telemetry
+│   ├── README.md                              # Comparative run matrix & reproduction runbook
+│   ├── system_architecture_and_engineering_approach.md # Master features, workflows, and algorithms
+│   ├── google_ai_studio_quota_usage.png       # Live Google AI Studio quota telemetry screenshot
+│   ├── model_pricing_and_cost_accounting.md   # Official Google Cloud rate cards & token accounting
+│   ├── test_suite_architecture.md             # Breakdown of all 1,006 tests across 24 test suites
+│   ├── default_mock_run/                      # Offline mock execution log, analysis & metrics
+│   ├── gemini_3.5_flash_lite_run/             # High-throughput Flash-Lite log, analysis & metrics
+│   └── gemini_4_argon_run/                    # Frontier Argon log, analysis & metrics
 ├── Plan/                                      # Phase-by-phase architectural blueprints
-│   ├── Five_Phase_Implementation_Plan.md
+│   ├── README.md                              # Planning directory index
+│   ├── Task_Specification_and_Step_Alignment.md # 100% compliance audit against assignment PDF
+│   ├── Five_Phase_Implementation_Plan.md      # Master strategic roadmap
 │   ├── Phase_1_Ingestion_and_Scraping.md
 │   ├── Phase_2_LLM_Extraction_and_Validation.md
 │   ├── Phase_3_Deduplication_and_Entity_Resolution.md
 │   ├── Phase_4_Storage_Idempotency_and_Change_History.md
 │   └── Phase_5_Evaluation_Testing_and_Documentation.md
-├── Notes/                                     # Technical deep-dives & verification logs
-└── Code/                                      # Pipeline implementation codebase
+├── Task/                                      # Original assignment specifications & rubric
+│   ├── README.md                              # Task directory index
+│   ├── Data Engineer Take-Home Assignment.pdf
+│   └── Data Engineer Take-Home Assignment_2.pdf
+├── Notes/                                     # Developer notes (Local only, excluded from Git)
+│   ├── README.md                              # Local notes index & security policies
+│   ├── Beginner_Level/                        # 12 beginner-friendly guides (Phases 1-5 & Live Runs)
+│   ├── 01-16 Technical Deep-Dives             # Architectural deep dives & step journals
+│   ├── gemini_api_key.txt                     # Local API credentials (git-ignored)
+│   └── .env                                   # Local environment variables (git-ignored)
+└── Code/                                      # Production pipeline implementation codebase
+    ├── README.md                              # Codebase execution guide & CLI options
     ├── data/
     │   ├── export/                            # Export directory for CSV/JSON outputs
-    │   ├── raw/                               # Local raw cache filesystem store
-    │   └── pipeline.db                        # SQLite WAL database (canonical & raw tables)
-    ├── pipeline/                              # Core pipeline package
-    │   ├── __init__.py
-    │   ├── config.py                          # Global configuration, tokens, rate limits
-    │   ├── ingest.py                          # Phase 1 Ingestion CLI & orchestrator
-    │   ├── extract.py                         # Phase 2 LLM Extraction CLI & batch runner
-    │   ├── export.py                          # Phase 4 RFC 4180 CSV/JSON export CLI
-    │   ├── scrapers/                          # Polite scrapers (Greenhouse, Lever, HN)
-    │   ├── filters/                           # Fast regex role and geography filters
-    │   ├── models/                            # Pydantic v2 schemas and validators
+    │   ├── pipeline.db                        # Production SQLite WAL database (95 canonical jobs)
+    │   ├── labeled_benchmark.json             # 20-posting golden benchmark dataset
+    │   └── evaluation_report.md               # Benchmark evaluation report
+    ├── pipeline/                              # Core pipeline engine
+    │   ├── ingestion/                         # Polite scrapers (Greenhouse, Lever, HN)
     │   ├── extractor/                         # Preprocessor, LLM client, batch runner
-    │   ├── dedup/                             # Entity resolution, blocker, matcher, merger
-    │   └── storage/                           # SQLite WAL, ChangeTracker, LifecycleManager
-    └── tests/                                 # Complete unit and integration test suite (1,006 tests)
+    │   ├── deduplication/                     # Entity resolution, blocker, matcher, merger
+    │   ├── storage/                           # SQLite WAL, ChangeTracker, LifecycleManager
+    │   ├── exporter/                          # Multi-format CSV/JSON exporter
+    │   ├── evaluate.py                        # Benchmark accuracy & cost evaluator
+    │   ├── models.py                          # Pydantic v2 schemas and validators
+    │   └── run.py                             # Master unified orchestrator CLI
+    └── tests/                                 # 1,006 unit, integration, and CLI tests (24 suites)
 ```
 
 ---

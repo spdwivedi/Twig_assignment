@@ -67,9 +67,9 @@ When duplicate sources report differing details:
 ---
 
 ## 5. Deliverables & Acceptance Criteria
-- [ ] Deduplication module `pipeline.dedup` with clear, deterministic matching algorithms.
-- [ ] Automated test suite with edge cases:
-  - Same company, identical title, different source -> Merge.
-  - Same company, Senior vs Staff -> Separate canonical records.
-  - Same company, Data Engineer vs ML Engineer -> Separate canonical records.
-  - Same posting re-ingested on subsequent runs -> 0 duplicates created.
+- [x] Deduplication module `pipeline.dedup` with clear, deterministic matching algorithms (Verified: Normalizer, TitleParser, Blocker, RapidFuzz Matcher, and DSU Merger).
+- [x] Automated test suite with edge cases:
+  - [x] Same company, identical title, different source -> Merge (Verified: merges multi-source postings into single canonical entity).
+  - [x] Same company, Senior vs Staff -> Separate canonical records (Verified: strict seniority boundary fences).
+  - [x] Same company, Data Engineer vs ML Engineer -> Separate canonical records (Verified: 12-family title disambiguation).
+  - [x] Same posting re-ingested on subsequent runs -> 0 duplicates created (Verified: idempotent deduplication).

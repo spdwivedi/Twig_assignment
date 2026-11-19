@@ -270,6 +270,8 @@ class PipelineOrchestrator:
         db_path: Optional[Union[str, Path]] = None,
         export_dir: Union[str, Path] = "data/export",
         mock: bool = True,
+        provider: Optional[str] = None,
+        model: Optional[str] = None,
         limit: Optional[int] = None,
         sources: Optional[Union[str, List[str]]] = None,
         concurrency: int = 5,
@@ -301,6 +303,8 @@ class PipelineOrchestrator:
         self.db_path = str(db_path) if db_path is not None else str(DB_PATH)
         self.export_dir = Path(export_dir)
         self.mock = mock
+        self.provider = provider
+        self.model = model
         self.limit = limit
         self.sources = sources
         self.concurrency = max(1, concurrency)
@@ -482,6 +486,8 @@ class PipelineOrchestrator:
             postings=candidate_postings,
             limit=self.limit,
             mock=self.mock,
+            provider=self.provider,
+            model=self.model,
             db_path=self.db_path,
             max_concurrency=self.concurrency,
             save_db=self.save_db,
@@ -839,6 +845,8 @@ class PipelineOrchestrator:
 
 def run_pipeline(
     mock: bool = True,
+    provider: Optional[str] = None,
+    model: Optional[str] = None,
     limit: Optional[int] = None,
     sources: Optional[Union[str, List[str]]] = None,
     export_dir: Union[str, Path] = "data/export",
@@ -856,6 +864,8 @@ def run_pipeline(
 
     Args:
         mock: If True, uses offline deterministic mock extraction (zero cost) and mock candidates fallback.
+        provider: Optional LLM provider name ('gemini', 'openai', 'mock').
+        model: Optional LLM model name (e.g. 'gemini-1.5-flash', 'gemini-4-argon').
         limit: Max postings to process.
         sources: Sources to scrape ('greenhouse', 'lever', 'hn' or list).
         export_dir: Directory path for exported artifacts.
@@ -876,6 +886,8 @@ def run_pipeline(
         db_path=db_path,
         export_dir=export_dir,
         mock=mock,
+        provider=provider,
+        model=model,
         limit=limit,
         sources=sources,
         concurrency=concurrency,
@@ -979,6 +991,20 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
+        "--provider",
+        type=str,
+        default=None,
+        help="LLM provider name: 'gemini', 'openai', or 'mock'",
+    )
+
+    parser.add_argument(
+        "--model",
+        type=str,
+        default=None,
+        help="LLM model name (e.g. 'gemini-1.5-flash', 'gemini-4-argon', 'gpt-4o-mini')",
+    )
+
+    parser.add_argument(
         "-v",
         "--verbose",
         action="store_true",
@@ -1013,6 +1039,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             detect_closures=not args.no_closures,
             dry_run=args.dry_run,
             live_scrape=args.live_scrape,
+            provider=getattr(args, "provider", None),
+            model=getattr(args, "model", None),
             verbose=args.verbose,
         )
         return 0 if results.get("status") == "success" else 1

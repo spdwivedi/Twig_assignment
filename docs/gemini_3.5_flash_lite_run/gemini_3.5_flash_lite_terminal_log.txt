@@ -1,0 +1,566 @@
+2026-11-19 04:48:03,764 [INFO] pipeline.run - ================================================================================
+2026-11-19 04:48:03,764 [INFO] pipeline.run - STARTING TWIG DATA ENGINEER MASTER PIPELINE EXECUTION
+2026-11-19 04:48:03,764 [INFO] pipeline.run -   Mode:        Live Provider Mode
+2026-11-19 04:48:03,764 [INFO] pipeline.run -   Database:    D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db
+2026-11-19 04:48:03,764 [INFO] pipeline.run -   Export Dir:  data\export
+2026-11-19 04:48:03,764 [INFO] pipeline.run -   Concurrency: 5
+2026-11-19 04:48:03,764 [INFO] pipeline.run -   Limit:       None
+2026-11-19 04:48:03,764 [INFO] pipeline.run - ================================================================================
+2026-11-19 04:48:03,764 [INFO] pipeline.run - [Stage 1/6] Ingestion: Starting raw data collection...
+2026-11-19 04:48:03,940 [INFO] pipeline.ingest - Commencing Phase 1 Ingestion for sources: ['greenhouse', 'lever', 'hn']
+2026-11-19 04:48:03,940 [INFO] pipeline.ingest - Executing GreenhouseScraper...
+2026-11-19 04:48:03,940 [INFO] pipeline.scrapers.greenhouse - Starting Greenhouse scrape across tokens: ['stripe', 'airbnb', 'databricks', 'figma']
+2026-11-19 04:48:03,940 [INFO] pipeline.scrapers.greenhouse - Scraping Greenhouse board for token: 'stripe'
+2026-11-19 04:48:05,318 [INFO] pipeline.scrapers.greenhouse - Successfully fetched 785 jobs for token 'stripe'
+2026-11-19 04:48:05,376 [INFO] pipeline.scrapers.greenhouse - Company token 'stripe': scraped and normalized 785 jobs (running total: 785)
+2026-11-19 04:48:05,376 [INFO] pipeline.scrapers.greenhouse - Scraping Greenhouse board for token: 'airbnb'
+2026-11-19 04:48:05,906 [INFO] pipeline.scrapers.greenhouse - Successfully fetched 200 jobs for token 'airbnb'
+2026-11-19 04:48:05,943 [INFO] pipeline.scrapers.greenhouse - Company token 'airbnb': scraped and normalized 200 jobs (running total: 985)
+2026-11-19 04:48:05,943 [INFO] pipeline.scrapers.greenhouse - Scraping Greenhouse board for token: 'databricks'
+2026-11-19 04:48:07,326 [INFO] pipeline.scrapers.greenhouse - Successfully fetched 899 jobs for token 'databricks'
+2026-11-19 04:48:07,434 [INFO] pipeline.scrapers.greenhouse - Company token 'databricks': scraped and normalized 899 jobs (running total: 1884)
+2026-11-19 04:48:07,434 [INFO] pipeline.scrapers.greenhouse - Scraping Greenhouse board for token: 'figma'
+2026-11-19 04:48:08,360 [INFO] pipeline.scrapers.greenhouse - Successfully fetched 143 jobs for token 'figma'
+2026-11-19 04:48:08,378 [INFO] pipeline.scrapers.greenhouse - Company token 'figma': scraped and normalized 143 jobs (running total: 2027)
+2026-11-19 04:48:08,378 [INFO] pipeline.scrapers.greenhouse - Greenhouse scrape complete. Total jobs collected: 2027 across 4 tokens
+2026-11-19 04:48:08,614 [INFO] pipeline.ingest - Source 'greenhouse': 2027 raw scraped, 2027 cached, 2027 candidate postings retained.
+2026-11-19 04:48:08,614 [INFO] pipeline.ingest - Executing LeverScraper...
+2026-11-19 04:48:08,615 [INFO] pipeline.scrapers.lever - Starting Lever scrape across sites: ['palantir', 'plaid']
+2026-11-19 04:48:08,615 [INFO] pipeline.scrapers.lever - Scraping Lever site: 'palantir'
+2026-11-19 04:48:08,615 [INFO] pipeline.scrapers.lever - Fetching Lever postings for site: 'palantir' from https://api.lever.co/v0/postings/palantir?mode=json
+2026-11-19 04:48:13,562 [INFO] pipeline.scrapers.lever - Successfully fetched 306 raw postings for Lever site 'palantir'.
+2026-11-19 04:48:13,562 [INFO] pipeline.scrapers.lever - Lever site 'palantir': fetched 306 raw postings, normalized 306 jobs (running total: 306).
+2026-11-19 04:48:13,562 [INFO] pipeline.scrapers.lever - Scraping Lever site: 'plaid'
+2026-11-19 04:48:13,562 [INFO] pipeline.scrapers.lever - Fetching Lever postings for site: 'plaid' from https://api.lever.co/v0/postings/plaid?mode=json
+2026-11-19 04:48:13,837 [WARNING] pipeline.scrapers.base - HTTP request returned status 404 for URL: https://api.lever.co/v0/postings/plaid?mode=json
+2026-11-19 04:48:13,837 [WARNING] pipeline.scrapers.lever - Lever API returned HTTP status 404 for site 'plaid'.
+2026-11-19 04:48:13,837 [INFO] pipeline.scrapers.lever - Lever site 'plaid': fetched 0 raw postings, normalized 0 jobs (running total: 306).
+2026-11-19 04:48:13,837 [INFO] pipeline.scrapers.lever - Lever scrape complete. Total jobs collected: 306 across 2 sites.
+2026-11-19 04:48:13,916 [INFO] pipeline.ingest - Source 'lever': 306 raw scraped, 306 cached, 306 candidate postings retained.
+2026-11-19 04:48:13,916 [INFO] pipeline.ingest - Executing HackerNewsScraper...
+2026-11-19 04:48:13,916 [INFO] pipeline.scrapers.hackernews - Searching for latest 'Who is hiring?' thread at https://news.ycombinator.com/submitted?id=whoishiring
+2026-11-19 04:48:16,382 [INFO] pipeline.scrapers.hackernews - Discovered latest hiring thread: 'Ask HN: Who is hiring? (November 2026)' (ID: 50338728, URL: https://news.ycombinator.com/item?id=50338728)
+2026-11-19 04:48:16,382 [INFO] pipeline.scrapers.hackernews - Executing scrape for Hacker News thread ID: 50338728
+2026-11-19 04:48:16,382 [INFO] pipeline.scrapers.hackernews - Fetching comments for HN thread ID 50338728 (max_pages=5)...
+2026-11-19 04:48:16,382 [INFO] pipeline.scrapers.hackernews - Fetching thread page 1/5: https://news.ycombinator.com/item?id=50338728
+2026-11-19 04:48:18,238 [INFO] pipeline.scrapers.hackernews - Page 1 retrieved 243 top-level comments (Cumulative: 243)
+2026-11-19 04:48:18,253 [INFO] pipeline.scrapers.hackernews - No more pages found or last page reached.
+2026-11-19 04:48:18,253 [INFO] pipeline.scrapers.hackernews - Finished comment fetching for thread ID 50338728. Total top-level comments extracted: 243
+2026-11-19 04:48:18,254 [INFO] pipeline.scrapers.hackernews - Normalized 243 Hacker News job postings.
+2026-11-19 04:48:18,276 [INFO] pipeline.ingest - Source 'hn': 243 raw scraped, 243 cached, 243 candidate postings retained.
+2026-11-19 04:48:18,278 [INFO] pipeline.run - [Stage 1/6] Ingestion complete. Ingested 2576 raw postings.
+2026-11-19 04:48:18,278 [INFO] pipeline.run - [Stage 2/6] Candidate Filtering: Evaluating 2576 raw postings...
+2026-11-19 04:48:18,352 [INFO] pipeline.run - [Stage 2/6] Candidate Filtering complete: 112 / 2576 postings qualified.
+2026-11-19 04:48:18,352 [INFO] pipeline.run - [Stage 3/6] LLM Extraction: Extracting schemas from 112 candidates...
+2026-11-19 04:48:18,364 [INFO] pipeline.extract - Using 112 in-memory postings provided to run_extraction.
+2026-11-19 04:48:18,364 [INFO] pipeline.extract - Initializing BatchExtractor (mock=False, provider=gemini, model=gemini-3.5-flash-lite, db_path=D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db, concurrency=5)...
+2026-11-19 04:48:18,364 [INFO] pipeline.extractor.batch_runner - Initializing standard JobExtractor with LLMClient (mock=False, provider=gemini, model=gemini-3.5-flash-lite)
+2026-11-19 04:48:18,364 [INFO] pipeline.extractor.batch_runner - [BatchRunner] Starting batch extraction for 112 postings with concurrency=5
+2026-11-19 04:48:20,406 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:20,406 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:20,406 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [1/112] SUCCESS: Stripe - Data Scientist (ID: db85f91ed5257ffa1e122e5b8d79369842bc54b4382241d9819c6e5d99ff7e07)
+2026-11-19 04:48:20,531 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:20,531 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:20,531 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [3/112] SUCCESS: Stripe - Machine Learning Engineer, Link (ID: 09358d8d88d49c1ecd6f0a091c2f457f3c9b5c8e08d5d5454e92ba4f0338a9c9)
+2026-11-19 04:48:20,674 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [5/112] SUCCESS: Stripe - Machine Learning Engineer, Radar (ID: a38bae355c91c2e90f3ef92e4f67263013b2417009f5adf3bfb0a929eac8f167)
+2026-11-19 04:48:20,802 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:20,802 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [4/112] SUCCESS: Stripe - Machine Learning Engineer, Radar (ID: a38bae355c91c2e90f3ef92e4f67263013b2417009f5adf3bfb0a929eac8f167)
+2026-11-19 04:48:20,808 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [2/112] SUCCESS: Stripe - Machine Learning Engineer, Growth Platform (ID: 60c06397730ae2790f450f726674b04645353eed1845f35fd19db7f93437ce65)
+2026-11-19 04:48:21,762 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:21,762 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:21,762 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [7/112] SUCCESS: Stripe - Master's Machine Learning Engineer, Intern (ID: 4364469dbf61894e99a71d7dd1822e7c7d95bea419627bb80829f21ba86fda8c)
+2026-11-19 04:48:21,953 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:21,953 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:21,954 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [6/112] SUCCESS: Stripe - Machine Learning Engineer, Transaction Risk (ID: b73ed25298da9efa6556fe38aa690635b2abfe37be4a6f1374273237fcccff54)
+2026-11-19 04:48:22,007 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:22,007 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:22,007 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:22,007 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [8/112] SUCCESS: Stripe - PhD Data Scientist, Intern (ID: d7a76137a22b22cd1968c137265dcfed571623f9e0e0e5f395232f0256b80f3f)
+2026-11-19 04:48:22,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:22,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:22,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:22,178 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [10/112] SUCCESS: Stripe - Staff Machine Learning Engineer, Financial Connections (ID: b6a5de4d077710f0c01727c50de1821aebdb29d0ee46761671f0840ceade68d6)
+2026-11-19 04:48:22,320 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:22,321 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:22,321 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:22,321 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [9/112] SUCCESS: Stripe - PhD Machine Learning Engineer, Intern (ID: 0360f8657fa6a962e5e8a117bd3f86b372859f6cd4b873f8afd7c2eafe955a06)
+2026-11-19 04:48:23,011 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:23,011 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:23,011 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:23,011 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [11/112] SUCCESS: Stripe - Staff Software Engineer, Money Movement Platform (ID: ba85ac6cc9e5cfccf69162ccdb28565a561f35ef731e19d803260140f1a4d386)
+2026-11-19 04:48:23,153 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:23,153 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [12/112] SUCCESS: Airbnb - Machine Learning Engineer, Assistance Engineering (ID: a3212037b52f9b45831f65cab7f9a9bb33eb7adf53b034d58ce089078b043505)
+2026-11-19 04:48:23,568 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [13/112] SUCCESS: Airbnb - Machine Learning Engineer, Assistance Engineering (ID: a3212037b52f9b45831f65cab7f9a9bb33eb7adf53b034d58ce089078b043505)
+2026-11-19 04:48:23,711 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:23,711 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:23,711 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:23,711 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [14/112] SUCCESS: Airbnb - Principal Machine Learning Engineer- LLM Fine-tuning and Optimization (ID: 8f5e0487214e664117b6e9248ef214869a2d5f393aa7171c2838458c2f10d2a1)
+2026-11-19 04:48:23,856 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:23,856 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:23,856 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:23,856 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [15/112] SUCCESS: Airbnb - Senior Data Engineer Tech Foundations (ID: f7c5179c53610125875114b9e5a53232425b5cad8f67716a518d66f9890bc0c9)
+2026-11-19 04:48:24,127 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:24,127 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:24,127 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:24,127 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:24,127 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [16/112] SUCCESS: Airbnb - Senior Data Scientist, Guest & Host (ID: 20ddc289c6f20e0a540f5e8feda1f5a2d6f5c510c0099d20fc74d553e4bf1113)
+2026-11-19 04:48:24,695 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:24,696 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:24,696 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [17/112] SUCCESS: Airbnb - Senior Data Scientist, People Analytics & Research (ID: 4b4a256f1928608be4ffff68bd5c495b10d7de0ff27ae7f786b8a13f47ba58e4)
+2026-11-19 04:48:24,983 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:24,983 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:24,983 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:24,983 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [19/112] SUCCESS: Airbnb - Senior Fullstack Software Engineer, Quality Platform (ID: 140ce5177c8cd46c8f8492bb85f73c07ae63068954497227af05b8e2100d0806)
+2026-11-19 04:48:25,122 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:25,122 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:25,122 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:25,122 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [18/112] SUCCESS: Airbnb - Senior Data Scientist, Trust (ML/Algo) (ID: f663665e1c147cc10a17993eee31ba8f8d1be62d0c9d0c4ad44925a7cc005562)
+2026-11-19 04:48:25,261 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:25,261 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:25,261 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:25,261 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:25,261 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [20/112] SUCCESS: Airbnb - Senior Machine Learning Engineer, Assistance Engineering (ID: 52c0863d030304bb7ae1fa2d0f8d394b0ae95423d857c13ad194ceda588891ab)
+2026-11-19 04:48:25,545 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:25,545 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:25,545 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:25,545 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [21/112] SUCCESS: Airbnb - Senior Machine Learning Engineer, Assistance Engineering (ID: 52c0863d030304bb7ae1fa2d0f8d394b0ae95423d857c13ad194ceda588891ab)
+2026-11-19 04:48:26,127 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:26,127 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:26,127 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:26,127 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [22/112] SUCCESS: Airbnb - Senior Machine Learning Engineer, Payments (ID: b9d1e1f27fa815d6bc4ec1a92d5d4c08b6e74b2683262be7fc67941e99d702d8)
+2026-11-19 04:48:26,535 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:26,535 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:26,535 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:26,535 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [23/112] SUCCESS: Airbnb - Senior Machine Learning Engineer, Query Intelligence (ID: d8ab35a0a260daffb960680429bbc16d0aa2f85602c95dcd1fbe6444a549a9fa)
+2026-11-19 04:48:26,684 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:26,684 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:26,684 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:26,685 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [24/112] SUCCESS: Airbnb - Senior Machine Learning Engineer, Relevance (ID: 550324431026181d201cdf7006acf9ad85058c9c0d6b3a19db4270438fdcb1cf)
+2026-11-19 04:48:26,685 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:26,685 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:26,685 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:26,685 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [25/112] SUCCESS: Airbnb - Senior Machine Learning Engineer, Trust (ID: fbf2709c2561172b3d14d00970871290e1098c2bb5a3b7efb9f329eba213df35)
+2026-11-19 04:48:26,948 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:26,948 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:26,948 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:26,948 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [26/112] SUCCESS: Airbnb - Senior Machine Learning Engineer, Trust (ID: fbf2709c2561172b3d14d00970871290e1098c2bb5a3b7efb9f329eba213df35)
+2026-11-19 04:48:27,652 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:27,652 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:27,652 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:27,652 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [27/112] SUCCESS: Airbnb - Senior Software Engineer, Analytics Infrastructure (ID: 0ffd955238179356e6a8dc8894b6064f6f85d9e8bda42f308e0ecc9ce46d87cd)
+2026-11-19 04:48:27,797 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:27,798 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:27,798 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [29/112] SUCCESS: Airbnb - Senior Software Engineer, iOS Platform (ID: aae1add399fd975492bb6ded6524627a44e682f99a3b2d24750de512d3b7e93c)
+2026-11-19 04:48:27,799 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:27,799 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:27,800 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:27,800 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [30/112] SUCCESS: Airbnb - Senior Staff Data Engineer, Foundational Data (ID: f98a63e34b43b686b05725b0cf81078b8dc1c190773d0a6d1618e7fe1231cfe3)
+2026-11-19 04:48:27,932 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:27,933 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:27,933 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:27,933 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [28/112] SUCCESS: Airbnb - Senior Software Engineer, Experimentation Platform (ID: 644bee43453422e8f930a3d745511e0091f91bdde10c3d3420bee881836b4eac)
+2026-11-19 04:48:27,935 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:27,935 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:27,935 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:27,936 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [31/112] SUCCESS: Airbnb - Senior Staff Data Scientist, Guest & Host Marketplace AI (ID: ff07af0adc34500cb8a5e0699f6115322f812f53f02fce65bc301f2a30ff964b)
+2026-11-19 04:48:29,176 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:29,177 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [33/112] SUCCESS: Airbnb - Senior Staff Machine Learning Engineer, Post Training (ID: 3f48b4474a44ea6fc4f2084e7940b21eec44e561493af5801b74fe50c86f85f3)
+2026-11-19 04:48:29,320 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:29,320 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:29,320 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:29,320 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [36/112] SUCCESS: Airbnb - Staff Data Scientist, Marketplace Intelligence and Forecasting (ID: 1539b9f3f6626a4ac2582a4862435dfd051b1918059307f836ff936f860eeaf0)
+2026-11-19 04:48:29,322 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:29,322 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [34/112] SUCCESS: Airbnb - Senior Staff Machine Learning Engineer, Trust (ID: b8b7661b72e5810576fa9743f0e9506c42d31f0c64bbaca55313971271c48a00)
+2026-11-19 04:48:29,441 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:29,441 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:29,441 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:29,441 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [32/112] SUCCESS: Airbnb - Senior Staff Machine Learning Engineer, Data & Eval (ID: a393330d75924065c15fffed9183fe0ed562ed5f6033e10d2f9e4a29380b8044)
+2026-11-19 04:48:29,594 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:29,594 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [35/112] SUCCESS: Airbnb - Software Engineer, Analytics Infrastructure (ID: 8bf0c0ea853bbfd77256125a652d21cb1f4671349924b94fec358188feade4fb)
+2026-11-19 04:48:30,290 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:30,290 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:30,290 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:30,290 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [37/112] SUCCESS: Airbnb - Staff Machine Learning Engineer, Assistance Engineering (ID: c7e320bb701b3091e966507d3546a48a5fc5d04ba986ee1296d68d1af852381d)
+2026-11-19 04:48:30,572 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:30,572 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:30,572 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:30,572 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [39/112] SUCCESS: Airbnb - Staff Software Engineer, Data Catalog (ID: 550e506b945496396921e76da3b2aae079139a3c002c1344ea66e6e06f6643b5)
+2026-11-19 04:48:30,828 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:30,828 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:30,828 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [38/112] SUCCESS: Airbnb - Staff Machine Learning Engineer, Traffic Intelligence (ID: f944e7379e0059c2ccc3330dea81223a5fc1ff42fd6dd2cec9e018e99d1a1a73)
+2026-11-19 04:48:30,831 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:30,831 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:30,831 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:30,832 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [41/112] SUCCESS: Airbnb - Staff Software Engineer, Prototyping Platform (Full Stack) (ID: a193e7b27d753ec06ce22f4b6cc2653095df2b5eb9fc8987d93a72701cc9776c)
+2026-11-19 04:48:30,978 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:30,978 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:30,978 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [40/112] SUCCESS: Airbnb - Staff Software Engineer, iOS Platform (ID: 2b096431c22b3934563f729ff57df930c5f6a6df287af728e39bc50900e090c6)
+2026-11-19 04:48:31,942 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:31,942 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:31,942 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:31,942 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [42/112] SUCCESS: Databricks - Senior Applied ML Engineer - ML4Sys (ID: 28d975b03572c6cbec8cae487da446c2021e594bc2173c35da5fd71ca51f3791)
+2026-11-19 04:48:31,945 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:31,945 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:31,945 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [44/112] SUCCESS: Databricks - Senior Software Engineer, AI Native Web Platform (ID: 68cd094b8564dea71419a8d67ee333b68e136e6eaf183212083b1d3b03a9066c)
+2026-11-19 04:48:32,091 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:32,091 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:32,091 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [43/112] SUCCESS: Databricks - Senior Data Scientist (ID: 4e57f4f770b450a57cf3603683f0599a6143ca658ccd4f6bb2f4eac5c0c4b817)
+2026-11-19 04:48:32,226 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:32,226 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:32,226 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [46/112] SUCCESS: Databricks - Senior Software Engineer - Distributed Data Systems (ID: d1eaaa35a9fa69505040112d0ce59a596ffc18f9ee671d62617083aedcbef7ab)
+2026-11-19 04:48:32,508 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:32,508 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:32,508 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:32,508 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [45/112] SUCCESS: Databricks - Senior Software Engineer (Backend) - AI/ML Environments (ID: f5fbcb6b31a9e9d00411e11639947cc78232181466d6b4c59ff8b2d614e68d20)
+2026-11-19 04:48:33,462 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [49/112] SUCCESS: Databricks - Specialist Solutions Architect - Data Engineering & Warehousing (Financial Services) (ID: 9296a650831cf92a9389a86db748f172017a3be2d6481c606163c2d97785d815)
+2026-11-19 04:48:33,468 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:33,468 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:33,468 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:33,468 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [47/112] SUCCESS: Databricks - Senior Software Engineer - Distributed Data Systems (ID: d1eaaa35a9fa69505040112d0ce59a596ffc18f9ee671d62617083aedcbef7ab)
+2026-11-19 04:48:33,608 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:33,608 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:33,608 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:33,608 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [48/112] SUCCESS: Databricks - Senior Software Engineer - Distributed Data Systems (ID: d1eaaa35a9fa69505040112d0ce59a596ffc18f9ee671d62617083aedcbef7ab)
+2026-11-19 04:48:33,613 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:33,614 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:33,614 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:33,614 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [50/112] SUCCESS: Databricks - Sr. Staff Software Engineer - Unity Catalog Data Governance (ID: bdf0bb4a939c0889a2b15b45acff21c4c10086aea20afd298361f19acd09203c)
+2026-11-19 04:48:34,010 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:34,010 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:34,010 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [51/112] SUCCESS: Databricks - Staff Backend Software Engineer- (AI Platform) (ID: 3138fabf1d02e9cf86827ee529c77ad6117a5dca9867f3236cc283a6ab17fc82)
+2026-11-19 04:48:34,706 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:34,706 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:34,706 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [53/112] SUCCESS: Databricks - Staff Data Scientist - Infrastructure (ID: afa0db82ed410fc5e1b7806ce0309df25404fd35db91d2d02ee924c19997f588)
+2026-11-19 04:48:35,117 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:35,117 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:35,117 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [56/112] SUCCESS: Databricks - Staff Machine Learning Engineer, CustomerLake (ML/LLM) (ID: bbd4210442a3cb5ade65cf8f6d15defdccc6c08391c5be5598e7cb9bfe304d64)
+2026-11-19 04:48:35,119 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:35,119 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:35,119 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:35,119 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [55/112] SUCCESS: Databricks - Staff Machine Learning Engineer (ID: cf6fec2b98245621b1aeb5fa9319a4271dd551dea69e5f0da45a5e6a08413e3e)
+2026-11-19 04:48:35,245 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:35,245 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:35,245 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [54/112] SUCCESS: Databricks - Staff Data Scientist - Trust and Safety (ID: 4c5c17dcdfd4a127ee852eb502913c13d5d9931c0e052d9a1230d622f68c460a)
+2026-11-19 04:48:35,248 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:35,249 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:35,249 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:35,249 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [52/112] SUCCESS: Databricks - Staff Data Scientist (ID: 2f161b13174c1f3ca15523ae9d75ea5413e5ba9cbb80d433cc59bd77eb1c99b6)
+2026-11-19 04:48:35,926 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:35,926 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:35,926 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:35,926 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [57/112] SUCCESS: Databricks - Staff Software Engineer - Customer Engagement & Docs Platform (ID: 72bbe68e926f402f4fae6d429ad270c1c85802104dcd5e2ae6a4b5d805051109)
+2026-11-19 04:48:36,336 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:36,336 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:36,336 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:36,336 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [60/112] SUCCESS: Databricks - Staff Software Engineer - Distributed Data Systems (ID: 06bae22efcb310d454b2c81981a06751e453640cce471895b1d30e9a4974468c)
+2026-11-19 04:48:36,619 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:36,619 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:36,619 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:36,619 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:36,619 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [59/112] SUCCESS: Databricks - Staff Software Engineer - Distributed Data Systems (ID: 06bae22efcb310d454b2c81981a06751e453640cce471895b1d30e9a4974468c)
+2026-11-19 04:48:36,760 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:36,760 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:36,760 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:36,760 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [61/112] SUCCESS: Databricks - Staff Software Engineer - Distributed Data Systems (ID: 06bae22efcb310d454b2c81981a06751e453640cce471895b1d30e9a4974468c)
+2026-11-19 04:48:36,761 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:36,761 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:36,761 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [58/112] SUCCESS: Databricks - Staff Software Engineer, Data Collection (Tags & SDKs) (ID: fdcb4690088feefddf80a77e6412132dbec5163c746c1172d1a7be4ada869042)
+2026-11-19 04:48:37,033 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:37,033 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:37,033 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [62/112] SUCCESS: Databricks - Staff Software Engineer, Sales Data & Agents (ID: 01fd5a3024cba33d694d3f2ac9f9343fd0b27b93dcc1a666ac96ce48e7021cde)
+2026-11-19 04:48:37,867 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:37,867 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:37,867 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:37,867 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:37,867 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [63/112] SUCCESS: Figma - Data Engineer Intern (2027) (ID: c90b0075060b4cb6075c75b1b6f2a06484f6f74c6511de06c9f46f308e804887)
+2026-11-19 04:48:38,138 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:38,139 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [66/112] SUCCESS: Figma - Software Engineer - Machine Learning (ID: 57814ed171432e03253ea0e981efde25d7bde93685f5c5dbaf60238cabeb1adb)
+2026-11-19 04:48:38,140 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:38,140 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [64/112] SUCCESS: Figma - Software Engineer - Application Platform (ID: b2d77498454b5950c9e512be38a29c2efa1358027b656adcda2698dbc1afcc28)
+2026-11-19 04:48:38,408 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:38,408 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [65/112] SUCCESS: Figma - Software Engineer - Data Infrastructure (ID: 4051f569eca24c3e24adcf33017566476555b3d4576d90388b977e2d6e3c5dc7)
+2026-11-19 04:48:38,409 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [67/112] SUCCESS: Palantir - Backend Software Engineer - Data Connectors (ID: cf9461ad421b70ee3e5873535fc4453e8ed400b5b43a0d7720f3d4ee18f6777d)
+2026-11-19 04:48:39,237 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [68/112] SUCCESS: Palantir - Platform Engineer - Identity Infrastructure (ID: 5c483d703d7eafc01aba0d66fb2acc4b382cd6cb2c8e8c7ecb45b89249c9453f)
+2026-11-19 04:48:39,238 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [69/112] SUCCESS: Palantir - Platform Engineer - Identity Infrastructure (ID: 5c483d703d7eafc01aba0d66fb2acc4b382cd6cb2c8e8c7ecb45b89249c9453f)
+2026-11-19 04:48:39,501 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [70/112] SUCCESS: Palantir - Platform Engineer - Identity Infrastructure (ID: 5c483d703d7eafc01aba0d66fb2acc4b382cd6cb2c8e8c7ecb45b89249c9453f)
+2026-11-19 04:48:39,779 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [71/112] SUCCESS: Palantir - Software Engineer - Apollo Platform (ID: 7650f7a5fa8c875b0519417658f393f324e6a3caf7463d1073611cba7ff74d7e)
+2026-11-19 04:48:40,056 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [72/112] SUCCESS: Palantir - Software Engineer - Apollo Platform (ID: 7650f7a5fa8c875b0519417658f393f324e6a3caf7463d1073611cba7ff74d7e)
+2026-11-19 04:48:40,341 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:40,341 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:40,341 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [74/112] SUCCESS: Palantir - Software Engineer - Environment Platform (ID: d52615cc4660ca29b04978e9c947cf2f2048997d43baa9c1886d4467b80e9fee)
+2026-11-19 04:48:40,602 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [73/112] SUCCESS: Palantir - Software Engineer - Environment Platform (ID: d52615cc4660ca29b04978e9c947cf2f2048997d43baa9c1886d4467b80e9fee)
+2026-11-19 04:48:40,886 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:40,887 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:40,887 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:40,887 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:40,887 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [75/112] SUCCESS: Palantir - Software Engineer, Internship - Connectivity Platform and Product (ID: e94803b80c11dc35b76023414728bf10483b3e9c98359c6b3d4ab0d44e461f73)
+2026-11-19 04:48:41,153 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:41,153 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [76/112] SUCCESS: Palantir - Software Engineer, Internship - Connectivity Platform and Product (ID: e94803b80c11dc35b76023414728bf10483b3e9c98359c6b3d4ab0d44e461f73)
+2026-11-19 04:48:41,298 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:41,298 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:41,298 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:41,298 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [77/112] SUCCESS: Palantir - Software Engineer, Internship - Data Connectors (ID: eb6f018e37507256d3d5544919587160e40f99c07507c5e97fb6dbb382d728ec)
+2026-11-19 04:48:41,849 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:41,849 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:41,849 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:41,849 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:41,849 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:41,849 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [78/112] SUCCESS: Bonfire Analytics - Bonfire Analytics | Senior Data Scientist, Staff Data Scientist | New York, NY ( (ID: 8beb527be8db870b173f1fd9584b54d3a580c2f311daad0c271cdb4f4d052d6c)
+2026-11-19 04:48:41,992 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [80/112] SUCCESS: Cocient - Software Engineers, Data Scientists (ID: 447e6a60c1f5b9812295ab7bcd93ea30a4500a08b018b9dcb016d4641503ef20)
+2026-11-19 04:48:42,118 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:42,118 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:42,118 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:42,118 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:42,118 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:42,118 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [79/112] SUCCESS: EggAI - EggAI | AI tech leads, Software and Platform engineers | REMOTE (EU) | Full-time (ID: 60d9aec19aecf696ce81f1a6e5a3c4b8bb806886ad70fec92a919b81fff09e98)
+2026-11-19 04:48:42,673 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:42,673 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:42,673 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:42,673 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:42,673 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:42,673 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [81/112] SUCCESS: Sumble - Sumble | Multiple Roles | Remote (US)| Full-time (ID: bc8d001386cb2540abcbbbd4c6e2f70594a0c12318cb3bdc9711bdb1b1effcce)
+2026-11-19 04:48:42,816 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:42,816 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:42,816 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:42,816 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:42,816 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:42,817 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [82/112] SUCCESS: IMC Trading - IMC Trading | Machine Learning Engineer | Amsterdam OR London | ONSITE | Full-ti (ID: 24b70b55d6a66a6561df932bcb108bb3459e200df79c3fbca9a50421be4095ce)
+2026-11-19 04:48:43,084 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:43,084 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:43,084 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:43,084 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:43,084 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:43,084 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:43,084 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:43,084 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [83/112] SUCCESS: Genentech - Genentech | 2027 Interns | PD Data Sciences & Analytics | ONSITE (South San Fran (ID: 71e67e432e29b6f5c68979a0e65d3b45af868beef35f036876346efd12d55de6)
+2026-11-19 04:48:43,356 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [84/112] SUCCESS: Peregrine - Backed by Sequoia Capital, Peregrine is the operational AI platform powering dec (ID: f14b99145cf1ce7264b2763aea69d4beaf267065a478f327fd87dea247789c33)
+2026-11-19 04:48:43,365 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:43,365 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:43,365 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:43,365 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:43,365 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:43,365 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [85/112] SUCCESS: Oscilar - Oscilar.com | Sr/Staff Software Engineers, Data Scientist, FDE, PM| REMOTE (US/C (ID: 794b73468e23f43894dafa34065f8b9104831f57c39efe9f03fe5aa9bc8990b8)
+2026-11-19 04:48:43,906 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:43,906 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:43,906 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [87/112] SUCCESS: Prior Labs - Prior Labs | Berlin, Freiburg, NYC | ONSITE | Full-time | (ID: dff050a17b142b46c2ddd2e74557ea22e67891fe4d26a28b2a3cba8fb2e29043)
+2026-11-19 04:48:44,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:44,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:44,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:44,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:44,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:44,178 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'visa_sponsorship': snippet not in source text. Set to None.
+2026-11-19 04:48:44,178 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [86/112] SUCCESS: Quantum Rise - Quantum Rise | Chicago IL or Remote (US, Brazil or EU) | Full-time | No visa spo (ID: f96af9999c6ecb36eb00a326692e7a071229cc645561a1df9fa280c257e77717)
+2026-11-19 04:48:44,452 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:44,452 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:44,452 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:44,452 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:44,452 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:44,452 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:44,452 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:44,452 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [88/112] SUCCESS: CNH - CNH | AI Engineer Intern | Tempe, AZ, USA | ON-SITE | Summer internship (40 hour (ID: 8f11f270aff422e6f0dd16b147700a647e079d0baf2a0d609ecb494b65115875)
+2026-11-19 04:48:44,745 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [89/112] SUCCESS: GovStar - GovStar | (ID: 7c0820a2e01a88725f6fa80af8b89ce5a680c3a29e7b3d00643d304f6a331668)
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'currency': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'salary_max': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'salary_min': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:45,022 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [90/112] SUCCESS: Epsilon - Epsilon |Hybrid (Chicago, IL) | Full time | $150-$160K USD (ID: ba31797b05af6ce93856d20c3786ef1f868c4bc2c63e5dfcefe90d4a71bf1247)
+2026-11-19 04:48:45,437 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:45,437 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:45,437 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:45,437 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:45,437 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:45,437 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:45,438 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [91/112] SUCCESS: Justworks - Justworks | NYC + Toronto (most roles require 2+ days in office) | Full-time | S (ID: 335c33d7252d554d47e9951b228fb5b6b1a314d7aedfe86d2cd95ba077906933)
+2026-11-19 04:48:45,567 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:45,567 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:45,567 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:45,567 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [92/112] SUCCESS: Odette Technologies - Odette Technologies | Senior Integration Engineer, Data/ML Engineer, Product Lea (ID: 59e645a523d30a671db5dc863389e7da75e2a5abc18c89460f0cb34413497296)
+2026-11-19 04:48:45,574 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:45,574 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:45,574 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:45,574 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:45,574 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:45,574 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [93/112] SUCCESS: SwingVision - SwingVision | Berkeley, CA | Full time + Internships (ID: 1feaba02366bd4073624369ef36b50d26a4c451af972ecf554df72db9793638a)
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'currency': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'salary_max': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'salary_min': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:46,124 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [94/112] SUCCESS: Reducto - Reducto | Multiple Engineering Roles | San Francisco | ONSITE | Full-time | 200k (ID: 72740197e6ce3c25362ca3a5f30002e77ce29afdb580b6f05ea92a7b01655171)
+2026-11-19 04:48:46,545 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:46,546 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:46,546 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:46,546 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:46,546 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:46,546 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:46,546 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:46,546 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [95/112] SUCCESS: Bikky - Bikky | Engineering Manager | Hybrid | Full time | NYC (ID: 41a0c8267f2d313667514a7af94720cf86995e2df001e69a1d31700f712ce8b6)
+2026-11-19 04:48:46,814 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:46,814 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:46,814 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:46,814 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:46,814 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:46,815 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [96/112] SUCCESS: Paradromics - Paradromics | Embedded Software Engineer | Austin, TX or Oakland, CA | Onsite | (ID: a40a9231c292768a2d2069ff7029c60a7fc72beef8c89f91c8eafc039ac62bc5)
+2026-11-19 04:48:46,818 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:46,818 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:46,818 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:46,818 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:46,818 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:46,818 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:46,818 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [98/112] SUCCESS: Spade - Spade | Multiple Engineering, AI/ML Data Science, and Revenue roles| HYBRID NYC (ID: b58a5def67c66228f62b68f3150ed39974198dd48d02d0ae206120ce65897d5f)
+2026-11-19 04:48:47,243 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:47,244 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:47,244 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:47,244 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:47,244 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'skills': snippet not in source text. Set to None.
+2026-11-19 04:48:47,244 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:47,244 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [97/112] SUCCESS: ThreatMark - ThreatMark | Security, Machine Learning | REMOTE(World) / Brno, Czech Republic | (ID: c9a034774a574c7a52b00070d15879374adbf9c53b273c6aea19e16ad3161cc2)
+2026-11-19 04:48:47,502 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:47,502 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:47,502 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:47,502 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [99/112] SUCCESS: Ledgebrook - Ledgebrook | Engineering, Product & Data | REMOTE (US, Canada, Poland; eligibili (ID: 74e2f7345020ef8e43e9f261cf5ef8efe60fa7becb9ee93ebe24d5b109a05acf)
+2026-11-19 04:48:47,911 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:47,911 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:47,911 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [100/112] SUCCESS: Vivral (Nair Engineering) - Vivral (Nair Engineering) | ML, Systems (GPU), Hardware, and Embedded Engineers (ID: ceb4c688660a7ab98c59da0f2e9985f45b1561e2129dba2fd43bdc5748efd642)
+2026-11-19 04:48:48,046 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [101/112] SUCCESS: University of Cambridge - PhD in AI / Earth Observation (ID: 7896108f8436997930cdedb944b1416899eaa6b62762ee3260cc7bdaac9536ae)
+2026-11-19 04:48:48,195 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:48,195 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:48,195 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:48,195 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:48,195 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [102/112] SUCCESS: Telescope Partners - Telescope Partners | Software Engineer & Data Scientist | Remote - AMERICAS ONLY (ID: 9e30d4a2f908965ee4996c2dd579087a0813c67b7014bc5554a98d33716a553d)
+2026-11-19 04:48:48,871 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [103/112] SUCCESS: CoVar - CoVar | Durham, NC and McLean, VA | (ID: 9fea6d1c0edf0127bcb78fdf7df44a29f6b3c8ecb1aff1cd71f06a7a800488a9)
+2026-11-19 04:48:49,157 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [104/112] SUCCESS: SentiLink - SentiLink | (ID: 0ad75a0578332adccf0a79f7d84d0d6660b12de198b912d5667e30fb2a535195)
+2026-11-19 04:48:49,280 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'city': snippet not in source text. Set to None.
+2026-11-19 04:48:49,280 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:49,280 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:49,280 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:49,280 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:49,280 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [105/112] SUCCESS: Baton - Baton | San Francisco, CA (Hybrid) | Full-Time (ID: 4efcc14cc5407913199d8eb4723703e43510520e0977526b3dadac93d1a6c6a4)
+2026-11-19 04:48:49,831 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:49,832 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:49,832 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:49,832 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:49,832 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:49,832 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [106/112] SUCCESS: Blackbird - Blackbird | Dev Shop | Remote (US only) | Contract (ID: 5e274f05bfa1f6b9eb333bc589d5a5cd3120336d3ad919f90ba4d982d26a97a7)
+2026-11-19 04:48:49,963 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:49,963 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:49,963 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [107/112] SUCCESS: Middesk - Middesk | Full-time | SF / NYC | Hybrid | (ID: 35041c6de035eaa09a1cbd1fac7f74628db2ec747f5ae0a1153cb69dadb86d6b)
+2026-11-19 04:48:50,375 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [109/112] SUCCESS: DuckDuckGo - DuckDuckGo - we are looking for candidates that are excited to join us on a miss (ID: 9314940b0e722c18ec6eb32c85089eff53832ce4f875d25513b0931be673ebce)
+2026-11-19 04:48:50,646 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:50,646 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:50,646 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:50,646 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:50,646 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'seniority': snippet not in source text. Set to None.
+2026-11-19 04:48:50,646 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:50,647 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [108/112] SUCCESS: Relevant Healthcare - Relevant Healthcare | Lead Engineer | Remote (US/Canada only) | Full-time (ID: 73ee73fde2e9730bf4afc581f78649a0a55b5efa718dfda742ef68327004f75b)
+2026-11-19 04:48:50,910 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:50,910 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:50,910 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [110/112] SUCCESS: Credit Genie - Credit Genie | Philadelphia / NYC / Toronto | Full-time | In Office | (ID: d2df40988752a19eeba09c33699629183c0e2384ebacb8ca5f36d5d15da00351)
+2026-11-19 04:48:51,340 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:51,340 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:51,340 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:51,340 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:51,340 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [112/112] SUCCESS: MixRank (YC S11) - MixRank (YC S11) | Software Engineers | 100% Remote (Global) | Full-Time MixRank (ID: d2c59128b3f95103424899e46627b6e679c8761595d38bdb38e4197141299e9c)
+2026-11-19 04:48:51,473 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'company': snippet not in source text. Set to None.
+2026-11-19 04:48:51,473 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'country': snippet not in source text. Set to None.
+2026-11-19 04:48:51,473 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'employment_type': snippet not in source text. Set to None.
+2026-11-19 04:48:51,473 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'remote_policy': snippet not in source text. Set to None.
+2026-11-19 04:48:51,473 [WARNING] pipeline.extractor.extractor - Hallucination detected on field 'title': snippet not in source text. Set to None.
+2026-11-19 04:48:51,473 [INFO] pipeline.extractor.batch_runner - [BatchRunner] [111/112] SUCCESS: Estuary - Estuary | US-Based / Remote | Full-time û (ID: b65c821c7b3ece2d48fc7ddbf0a7b2b2da1317d587dd871323640305230021be)
+2026-11-19 04:48:51,475 [INFO] pipeline.extractor.batch_runner - [BatchRunner] Completed batch: 112/112 succeeded (100.0%) in 33.11 seconds (3.4 jobs/sec)
+2026-11-19 04:48:51,475 [INFO] pipeline.extract - Persisting 112 extracted records to SQLite table 'extracted_postings'...
+2026-11-19 04:48:51,503 [INFO] pipeline.extractor.batch_runner - Saved 112 extracted postings into table 'extracted_postings'
+2026-11-19 04:48:51,504 [INFO] pipeline.extract - Successfully persisted 112 records into 'D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db'.
+2026-11-19 04:48:51,504 [INFO] pipeline.run - [Stage 3/6] LLM Extraction complete: Extracted 112 structured records.
+2026-11-19 04:48:51,504 [INFO] pipeline.run - [Stage 4/6] Deduplication & Entity Resolution: Resolving 112 records...
+2026-11-19 04:48:51,575 [INFO] pipeline.dedup.resolver - Starting deduplication for 112 input postings...
+2026-11-19 04:48:51,577 [INFO] pipeline.dedup.resolver - Partitioned 112 postings into 40 candidate blocks.
+2026-11-19 04:48:51,805 [INFO] pipeline.dedup.resolver - Completed 761 pairwise comparisons. Identified 68 matching pairs.
+2026-11-19 04:48:51,805 [INFO] pipeline.dedup.resolver - Formed 75 connected component clusters.
+2026-11-19 04:48:51,807 [INFO] pipeline.dedup.resolver - Deduplication complete: 112 raw postings -> 75 canonical records (merged 37 duplicates).
+2026-11-19 04:48:51,807 [INFO] pipeline.run - [Stage 4/6] Deduplication complete: 75 canonical entities resolved (37 duplicates merged).
+2026-11-19 04:48:51,807 [INFO] pipeline.run - [Stage 5/6] Storage & Change Detection: Persisting 75 canonical entities...
+2026-11-19 04:48:51,817 [INFO] pipeline.storage.idempotent_upsert - Completed upsert: 34 inserted, 0 updated, 41 unchanged, 0 changes logged
+2026-11-19 04:48:51,817 [INFO] pipeline.run - Executing active/closed lifecycle closure detection...
+2026-11-19 04:48:51,820 [INFO] pipeline.storage.lifecycle_manager - detect_closed_postings completed for source 'greenhouse'. Closed 0 postings.
+2026-11-19 04:48:51,821 [INFO] pipeline.storage.lifecycle_manager - detect_closed_postings completed for source 'lever'. Closed 0 postings.
+2026-11-19 04:48:51,823 [INFO] pipeline.storage.lifecycle_manager - detect_closed_postings completed for source 'hackernews'. Closed 0 postings.
+2026-11-19 04:48:51,823 [INFO] pipeline.run - [Stage 5/6] Storage complete: 34 inserted, 0 updated, 41 unchanged, 0 closed, 0 changes logged.
+2026-11-19 04:48:51,823 [INFO] pipeline.run - [Stage 6/6] Export: Writing artifacts to 'data\export'...
+2026-11-19 04:48:51,840 [INFO] pipeline.storage.exporter - Exported 92 canonical jobs to CSV: data\export\canonical_jobs.csv
+2026-11-19 04:48:51,848 [INFO] pipeline.storage.exporter - Exported 92 canonical jobs to JSON: data\export\canonical_jobs.json
+2026-11-19 04:48:51,852 [INFO] pipeline.storage.exporter - Exported 8 change history records to CSV: data\export\change_history.csv
+2026-11-19 04:48:51,852 [INFO] pipeline.run - [Stage 6/6] Export complete: CSV (92 rows, 40.8 KB), JSON (92 records, 103.5 KB), History (8 rows, 1.2 KB).
+
+==================================================================================
+                     Twig Phase 1 Ingestion Pipeline Summary
+==================================================================================
+ Source         |   Raw Scraped |   Cached in DB |   Candidate Jobs | Status
+----------------+---------------+----------------+------------------+-------------
+ greenhouse     |          2027 |           2027 |             2027 | SUCCESS
+ hn             |           243 |            243 |              243 | SUCCESS
+ lever          |           306 |            306 |              306 | SUCCESS
+----------------+---------------+----------------+------------------+-------------
+ TOTAL          |          2576 |           2576 |             2576 | FILTERED
+==================================================================================
+ Filtering Enabled:    False (Data/ML Engineering & US/US-Remote)
+ Target Scope Window:  ~100û300 candidate postings
+ SQLite Database Path: D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db
+==================================================================================
+
+
+==========================================================================
+                 Twig Phase 2 LLM Extraction Metrics Report
+==========================================================================
+  Metric Category                     |                   Measured Value
+------------------------------------+-----------------------------------
+  Total Postings Processed            |                              112
+  Successful Extractions              |                              112
+  Failed Extractions (Fail-Soft)      |                                0
+  Extraction Success Rate             |                          100.00%
+------------------------------------+-----------------------------------
+  Postings with Non-Null Salary       |                            0.00% (0/112)
+  Postings with Remote Policy         |                            0.00% (0/112)
+  Postings with Verified Evidence     |                            0.00% (0/112)
+------------------------------------+-----------------------------------
+  Total Prompt Tokens Consumed        |                          665,765
+  Total Completion Tokens             |                           17,543
+  Total Cost (USD)                    | $                       0.055195
+  Average Cost per Posting            | $                       0.000493
+------------------------------------+-----------------------------------
+  Batch Execution Time                |                          33.11 sec
+  Extraction Throughput               |                       3.38 postings/s
+==========================================================================
+
+
+==================================================================================
+                            TWIG DATA ENGINEER PIPELINE EXECUTION SUMMARY         
+==================================================================================
+  Execution Mode:       Live Provider Mode
+  Target Database:      D:/Project_Files/AGY_Assignments/Twig/Code/data/pipeline.db
+  Export Directory:     data\export
+  Total Duration:       48.089s
+----------------------------------------------------------------------------------
+  STAGE METRICS & THROUGHPUT
+   1. Raw Ingestion:              2576 postings scraped/loaded
+   2. Role & Location Filter:      112 candidate Data/ML postings retained
+   3. LLM Structured Extraction:   112 postings extracted (0 hallucinations)
+   4. Deduplication & DSU:          75 canonical entities (37 duplicates merged)
+   5. Storage & Idempotency:     34 inserted | 0 updated | 41 unchanged | 0 closed
+   6. Artifact Exports:
+      - Canonical Jobs CSV:      data\export\canonical_jobs.csv (92 rows, 40.8 KB)
+      - Canonical Jobs JSON:     data\export\canonical_jobs.json (92 entities, 103.5 KB)
+      - Change History CSV:      data\export\change_history.csv (8 rows, 1.2 KB)
+==================================================================================
+                 PIPELINE EXECUTION STATUS: COMPLETED SUCCESSFULLY                
+==================================================================================
+

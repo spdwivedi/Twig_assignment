@@ -77,7 +77,7 @@ Audit log recording every modification to tracked fields across pipeline re-runs
 ---
 
 ## 5. Deliverables & Acceptance Criteria
-- [ ] Database migration / initialization script in `pipeline.db`.
-- [ ] Zero duplicate records created when running `python -m pipeline.run` twice consecutively against the same source cache.
-- [ ] Verified change history logging when mock salary or status changes are introduced.
-- [ ] Formatted CSV export matching the exact assignment specification.
+- [x] Database migration / initialization script in `pipeline.db` (Verified: SQLite WAL mode, schema indexes, foreign keys enabled).
+- [x] Zero duplicate records created when running `python -m pipeline.run` twice consecutively against the same source cache (Verified: 0 inserted, 0 updated, 7 unchanged on mock re-run).
+- [x] Verified change history logging when mock salary or status changes are introduced (Verified: `ChangeTracker` recording field-level deltas with $1.00 float tolerance).
+- [x] Formatted CSV export matching the exact assignment specification (Verified: RFC 4180 `canonical_jobs.csv` and `change_history.csv`).

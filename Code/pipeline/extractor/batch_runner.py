@@ -133,6 +133,8 @@ class BatchExtractor:
         self,
         extractor: Optional[Any] = None,
         mock: bool = False,
+        provider: Optional[str] = None,
+        model: Optional[str] = None,
         db_path: Optional[str] = None,
     ) -> None:
         """Initialize the BatchExtractor.
@@ -142,9 +144,13 @@ class BatchExtractor:
                        to load `JobExtractor` from `pipeline.extractor.extractor`
                        with fallback to `FallbackJobExtractor`.
             mock: If True and extractor is omitted, initializes in offline mock mode.
+            provider: Optional LLM provider ('gemini', 'openai', 'mock').
+            model: Optional LLM model name (e.g. 'gemini-1.5-flash', 'gemini-4-argon').
             db_path: Path to the SQLite database. Defaults to pipeline.config.DB_PATH.
         """
         self.mock = mock
+        self.provider = provider
+        self.model = model
         self.db_path = str(db_path or DB_PATH)
         self._lock = threading.Lock()
 
@@ -159,16 +165,23 @@ class BatchExtractor:
         if extractor is not None:
             self.extractor = extractor
         else:
-            self.extractor = self._init_default_extractor(mock=mock)
+            self.extractor = self._init_default_extractor(mock=mock, provider=provider, model=model)
 
-    def _init_default_extractor(self, mock: bool = False) -> Any:
+    def _init_default_extractor(
+        self, mock: bool = False, provider: Optional[str] = None, model: Optional[str] = None
+    ) -> Any:
         """Initialize the core JobExtractor with graceful fallback."""
         try:
             from pipeline.extractor.extractor import JobExtractor
             from pipeline.extractor.llm_client import LLMClient
 
-            logger.info("Initializing standard JobExtractor with LLMClient (mock=%s)", mock)
-            client = LLMClient(mock=mock)
+            logger.info(
+                "Initializing standard JobExtractor with LLMClient (mock=%s, provider=%s, model=%s)",
+                mock,
+                provider,
+                model,
+            )
+            client = LLMClient(mock=mock, provider=provider, model=model)
             return JobExtractor(llm_client=client)
         except Exception as exc:
             logger.warning(
@@ -176,7 +189,9 @@ class BatchExtractor:
                 "Using FallbackJobExtractor with LLMClient.",
                 exc,
             )
-            return FallbackJobExtractor(mock=mock)
+            from pipeline.extractor.llm_client import LLMClient
+            client = LLMClient(mock=mock, provider=provider, model=model)
+            return FallbackJobExtractor(mock=mock, llm_client=client)
 
     def reset_metrics(self) -> None:
         """Reset internal metrics counters and extraction buffers."""

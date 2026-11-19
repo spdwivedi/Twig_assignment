@@ -1,6 +1,6 @@
 # Twig Data Engineer Pipeline - Benchmark Evaluation Report
 
-- **Evaluation Timestamp**: `2026-11-18T20:50:22.195375+00:00`
+- **Evaluation Timestamp**: `2026-11-18T23:06:04.676149+00:00`
 - **Benchmark Dataset**: `data\labeled_benchmark.json`
 - **Total Postings Evaluated**: `20`
 - **Execution Mode**: `Hermetic Offline Mock` (`mock-extractor`)
